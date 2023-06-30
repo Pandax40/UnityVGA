@@ -29,12 +29,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Horizontal"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""9476daf6-2853-471f-90a3-7c751fad4de8"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Verical"",
