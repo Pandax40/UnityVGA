@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1352420827248955513}
   - component: {fileID: 6624061453800881078}
   - component: {fileID: 4954285303032616406}
-  - component: {fileID: 8835231934924437513}
   - component: {fileID: 5862676011788400524}
   m_Layer: 0
   m_Name: Player
@@ -33,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6624061453800881078
 Rigidbody2D:
@@ -107,19 +106,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8835231934924437513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7502305412776154647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d11b665855225c41b7d37517f1c657b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HorizontalVelocty: 4
 --- !u!114 &5862676011788400524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +133,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8835231934924437513}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: HorizontalMove
         m_Mode: 0
