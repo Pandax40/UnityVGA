@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: ed0b88f801c285343af83ccf99c20e02
+  - enabled: 1
+    path: Assets/Scenes/MarcScene.unity
+    guid: c4a5c87df1826004bbf53074320d31a8
   m_configObjects: {}
