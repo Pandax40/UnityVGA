@@ -11,32 +11,38 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float SlideForce;
     [SerializeField] private float SlideDrag;
     [SerializeField] private Animator Animator;
+    [SerializeField] private Collider2D[] animationColiders; //Orden: [0]Idle/Jump [1]Run/AirDash [2]Slide/Shift
+
 
     private new Rigidbody2D rigidbody;
     private bool canJump; //Si puede saltar.
     private bool jumping; //Si la Key esta pulsada.
     private bool canSlide;
+    private bool canMove;
     private LayerMask raycastLayer;
-    private float raycastDistance;
+    private float raycastGroundDistance;
+    private float raycastHorizontalDistance;
     private float speed;
+    private int actIndex; //Indice del colider actual
 
     //TODO:
     // - Implementar el shifteo
-    // - Cambiar hitbox al slidear y al shiftear
     // - Implementar el wall jump.
     // - Ajustar el personaje al mapa [Primero tener mapa]
     // - Raycast a los lados para evitar el bug de las animaciones de correr pegado a la pared
-    // - Mejorar hitbox [Lados mas rectos]
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
 
         raycastLayer = LayerMask.GetMask("Raycast");
-        raycastDistance = 1.7f; //Mejor distancia actual
+        raycastGroundDistance = 1.7f; //Mejor distancia al suelo actual
+        raycastHorizontalDistance = 1.2f;
 
         canSlide = true;
+        canMove = true;
         jumping = false;
+        actIndex = 0;
     }
 
 
@@ -58,9 +64,12 @@ public class PlayerMovement : MonoBehaviour
 
         //Detectar si se pude saltar
         Vector3 raycastCenter = transform.position + new Vector3(-0.233f, 0, 0) * -direction;
-        canJump = Physics2D.Raycast(raycastCenter, Vector2.down, raycastDistance, raycastLayer).collider != null;
-        if (canJump == false) canJump = Physics2D.Raycast(raycastCenter + new Vector3(-distanceRaycasts, 0, 0), Vector2.down, raycastDistance, raycastLayer).collider != null;
-        if (canJump == false) canJump = Physics2D.Raycast(raycastCenter + new Vector3(distanceRaycasts, 0, 0), Vector2.down, raycastDistance, raycastLayer).collider != null;
+        canJump = Physics2D.Raycast(raycastCenter, Vector2.down, raycastGroundDistance, raycastLayer).collider != null;
+        if (canJump == false) canJump = Physics2D.Raycast(raycastCenter + new Vector3(-distanceRaycasts, 0, 0), Vector2.down, raycastGroundDistance, raycastLayer).collider != null;
+        if (canJump == false) canJump = Physics2D.Raycast(raycastCenter + new Vector3(distanceRaycasts, 0, 0), Vector2.down, raycastGroundDistance, raycastLayer).collider != null;
+
+        //Detectar si hay una pared
+        canMove = Physics2D.Raycast(transform.position, Vector2.right, raycastHorizontalDistance, raycastLayer).collider == null;
 
         //Slide restrictivo
         if (!canSlide && Mathf.Abs(rigidbody.velocity.x) < HorizontalVelocty)
@@ -76,6 +85,16 @@ public class PlayerMovement : MonoBehaviour
         Animator.SetFloat("Jumping Velocity", Mathf.Clamp(rigidbody.velocity.y, -1f, 1f));
         Animator.SetFloat("Horizontal Speed", Mathf.Clamp(rigidbody.velocity.x, -1f, 1f));
 
+        //Actualizar colider
+        if (Mathf.Clamp(rigidbody.velocity.x, -1f, 1f) != 0f)
+        {
+            if(canJump && !canSlide) 
+                ColiderActivator(2);
+            else 
+                ColiderActivator(1);
+        }
+        else ColiderActivator(0);
+
         //Rotacion objeto
         if (rigidbody.velocity.x < 0)
             transform.eulerAngles = new Vector3(0, 180, 0);
@@ -87,16 +106,24 @@ public class PlayerMovement : MonoBehaviour
             rigidbody.AddForce(Vector2.up * VerticalVelocty, ForceMode2D.Impulse);
 
         //Debug Info
-        Debug.DrawLine(raycastCenter, raycastCenter + Vector3.down * raycastDistance);
-        Debug.DrawLine(raycastCenter + new Vector3(-distanceRaycasts, 0, 0), raycastCenter + new Vector3(-distanceRaycasts, 0, 0) + new Vector3(0, -raycastDistance, 0));
-        Debug.DrawLine(raycastCenter + new Vector3(distanceRaycasts, 0, 0), raycastCenter + new Vector3(distanceRaycasts, 0, 0) + new Vector3(0, -raycastDistance, 0));
+        Debug.DrawLine(transform.position, transform.position + Vector3.right * raycastHorizontalDistance);
+        Debug.DrawLine(raycastCenter, raycastCenter + Vector3.down * raycastGroundDistance); 
+        Debug.DrawLine(raycastCenter + new Vector3(-distanceRaycasts, 0, 0), raycastCenter + new Vector3(-distanceRaycasts, 0, 0) + new Vector3(0, -raycastGroundDistance, 0));
+        Debug.DrawLine(raycastCenter + new Vector3(distanceRaycasts, 0, 0), raycastCenter + new Vector3(distanceRaycasts, 0, 0) + new Vector3(0, -raycastGroundDistance, 0));
+    }
+
+    private void ColiderActivator(int index)
+    {
+        animationColiders[actIndex].enabled = false;
+        animationColiders[index].enabled = true;
+        actIndex = index;
     }
 
     public void HorizontalMove(InputAction.CallbackContext context)
     {
         //Establece la velocidad horizontal
         speed = context.ReadValue<float>() * HorizontalVelocty;
-        if (canSlide) rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
+        if (canSlide && canMove) rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
     }
 
     public void VerticalMove(InputAction.CallbackContext context)

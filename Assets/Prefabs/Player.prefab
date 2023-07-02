@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 5
   m_Material: {fileID: 6200000, guid: fa5b62e015ddf1f40a00727f90a8ab05, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -148,10 +148,10 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.45, y: 0.44}
+  m_Offset: {x: 0.32, y: 0.44}
   m_SpriteTilingProperty:
     border: {x: 1.8000001, y: 0.1, z: 2.8, w: 1}
-    pivot: {x: 0.43, y: 0.4}
+    pivot: {x: 0.45, y: 0.4}
     oldSize: {x: 6.4, y: 4.4}
     newSize: {x: 6.4, y: 4.4}
     adaptiveTilingThreshold: 0.5
@@ -160,57 +160,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.19866371, y: 1.2013266}
-      - {x: -0.7033255, y: 1.1956959}
-      - {x: -0.70380616, y: 1.1051545}
-      - {x: -0.904464, y: 1.0973194}
-      - {x: -0.9036548, y: 0.8984795}
-      - {x: -1.0022027, y: 0.9025982}
-      - {x: -1.0063841, y: 0.6981321}
-      - {x: -1.1027334, y: 0.69891506}
-      - {x: -1.1048628, y: 0.60014015}
-      - {x: -1.2037158, y: 0.60289496}
-      - {x: -1.202882, y: -0.102326065}
-      - {x: -1.3100549, y: -0.09415296}
-      - {x: -1.3081592, y: -0.39372575}
-      - {x: -1.3988706, y: -0.41106188}
-      - {x: -1.5060647, y: -0.40999818}
-      - {x: -1.5044672, y: -1.1090572}
-      - {x: -1.4030659, y: -1.1113248}
-      - {x: -1.404772, y: -1.4005078}
-      - {x: -1.2044337, y: -1.401648}
-      - {x: -1.201473, y: -1.7090418}
-      - {x: -1.1086274, y: -1.7119586}
-      - {x: -1.1044033, y: -2.1009665}
-      - {x: -0.90099937, y: -2.100828}
-      - {x: -0.8878429, y: -1.909308}
-      - {x: -0.59782934, y: -1.9501276}
-      - {x: -0.30414012, y: -1.9130929}
-      - {x: -0.30322796, y: -2.1003516}
-      - {x: -0.0007787347, y: -2.1009665}
-      - {x: -0.0014837384, y: -1.9991086}
-      - {x: -0.1007275, y: -1.9987457}
-      - {x: -0.100106984, y: -1.6958344}
-      - {x: 0.0010888577, y: -1.6962318}
-      - {x: 0.00045835972, y: -1.291146}
-      - {x: 0.10324335, y: -1.2898196}
-      - {x: 0.0982756, y: -1.1975863}
-      - {x: 0.099912345, y: -1.0007212}
-      - {x: 0.49289417, y: -1.0065418}
-      - {x: 0.5023589, y: -0.5788009}
-      - {x: 0.4042399, y: -0.58134425}
-      - {x: 0.40363717, y: -0.3881313}
-      - {x: 0.30500102, y: -0.38801008}
-      - {x: 0.3101716, y: -0.27772766}
-      - {x: 0.20772123, y: -0.27666146}
-      - {x: 0.20145679, y: 0.06671834}
-      - {x: 0.40986133, y: 0.31174654}
-      - {x: 0.41048884, y: 0.49838692}
-      - {x: 0.20041656, y: 0.70173436}
-      - {x: 0.10362828, y: 0.6973391}
-      - {x: 0.101254225, y: 0.901357}
-      - {x: 0.00091695786, y: 0.8997174}
-      - {x: 0.0035860538, y: 1.1028316}
+    - - {x: -1.102242, y: -2.1001549}
+      - {x: -1.3999999, y: -1.2015685}
+      - {x: -1.3999999, y: -0.40055722}
+      - {x: -0.9143968, y: 1.1044488}
+      - {x: -0.42755315, y: 1.2322834}
+      - {x: 0.02751559, y: 1.0958107}
+      - {x: 0.46999997, y: 0.60211486}
+      - {x: 0.46999997, y: -1.1031848}
+      - {x: -0.001970768, y: -2.1000164}
   m_UseDelaunayMesh: 0
 --- !u!114 &5862676011788400524
 MonoBehaviour:
@@ -269,6 +227,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ea66179b-1ea4-4cb6-8b2d-a705bc109e93
     m_ActionName: Controles/Verical[/Keyboard/w,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 584717103700282051}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: Slide
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a064f378-fc12-402c-9d79-35af194c6beb
+    m_ActionName: Controles/Slide[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Controles
@@ -287,8 +261,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HorizontalVelocty: 8
-  VerticalVelocty: 10
+  VerticalVelocty: 16
+  SlideForce: 15
+  SlideDrag: 2
   Animator: {fileID: 4542146870827516232}
+  animationColiders: []
 --- !u!95 &4542146870827516232
 Animator:
   serializedVersion: 5
