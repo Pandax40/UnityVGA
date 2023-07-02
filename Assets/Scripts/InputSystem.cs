@@ -44,6 +44,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slide"",
+                    ""type"": ""Button"",
+                    ""id"": ""a064f378-fc12-402c-9d79-35af194c6beb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -123,6 +132,17 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Verical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9aa9fe82-da7b-4a8a-90f6-1273557ee9db"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -133,6 +153,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Controles = asset.FindActionMap("Controles", throwIfNotFound: true);
         m_Controles_Horizontal = m_Controles.FindAction("Horizontal", throwIfNotFound: true);
         m_Controles_Verical = m_Controles.FindAction("Verical", throwIfNotFound: true);
+        m_Controles_Slide = m_Controles.FindAction("Slide", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -196,12 +217,14 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private List<IControlesActions> m_ControlesActionsCallbackInterfaces = new List<IControlesActions>();
     private readonly InputAction m_Controles_Horizontal;
     private readonly InputAction m_Controles_Verical;
+    private readonly InputAction m_Controles_Slide;
     public struct ControlesActions
     {
         private @InputSystem m_Wrapper;
         public ControlesActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
         public InputAction @Horizontal => m_Wrapper.m_Controles_Horizontal;
         public InputAction @Verical => m_Wrapper.m_Controles_Verical;
+        public InputAction @Slide => m_Wrapper.m_Controles_Slide;
         public InputActionMap Get() { return m_Wrapper.m_Controles; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -217,6 +240,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Verical.started += instance.OnVerical;
             @Verical.performed += instance.OnVerical;
             @Verical.canceled += instance.OnVerical;
+            @Slide.started += instance.OnSlide;
+            @Slide.performed += instance.OnSlide;
+            @Slide.canceled += instance.OnSlide;
         }
 
         private void UnregisterCallbacks(IControlesActions instance)
@@ -227,6 +253,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Verical.started -= instance.OnVerical;
             @Verical.performed -= instance.OnVerical;
             @Verical.canceled -= instance.OnVerical;
+            @Slide.started -= instance.OnSlide;
+            @Slide.performed -= instance.OnSlide;
+            @Slide.canceled -= instance.OnSlide;
         }
 
         public void RemoveCallbacks(IControlesActions instance)
@@ -248,5 +277,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     {
         void OnHorizontal(InputAction.CallbackContext context);
         void OnVerical(InputAction.CallbackContext context);
+        void OnSlide(InputAction.CallbackContext context);
     }
 }
