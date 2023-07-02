@@ -53,6 +53,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shift"",
+                    ""type"": ""Button"",
+                    ""id"": ""7fd5cd11-461b-4198-a334-1e7fa83642d9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -143,6 +152,17 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Slide"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6e576763-8138-4771-838e-8990d2785f9f"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -193,6 +213,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Controles_Horizontal = m_Controles.FindAction("Horizontal", throwIfNotFound: true);
         m_Controles_Verical = m_Controles.FindAction("Verical", throwIfNotFound: true);
         m_Controles_Slide = m_Controles.FindAction("Slide", throwIfNotFound: true);
+        m_Controles_Shift = m_Controles.FindAction("Shift", throwIfNotFound: true);
         // Pause
         m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
         m_Pause_Pause = m_Pause.FindAction("Pause", throwIfNotFound: true);
@@ -260,6 +281,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controles_Horizontal;
     private readonly InputAction m_Controles_Verical;
     private readonly InputAction m_Controles_Slide;
+    private readonly InputAction m_Controles_Shift;
     public struct ControlesActions
     {
         private @InputSystem m_Wrapper;
@@ -267,6 +289,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @Horizontal => m_Wrapper.m_Controles_Horizontal;
         public InputAction @Verical => m_Wrapper.m_Controles_Verical;
         public InputAction @Slide => m_Wrapper.m_Controles_Slide;
+        public InputAction @Shift => m_Wrapper.m_Controles_Shift;
         public InputActionMap Get() { return m_Wrapper.m_Controles; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -285,6 +308,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Slide.started += instance.OnSlide;
             @Slide.performed += instance.OnSlide;
             @Slide.canceled += instance.OnSlide;
+            @Shift.started += instance.OnShift;
+            @Shift.performed += instance.OnShift;
+            @Shift.canceled += instance.OnShift;
         }
 
         private void UnregisterCallbacks(IControlesActions instance)
@@ -298,6 +324,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Slide.started -= instance.OnSlide;
             @Slide.performed -= instance.OnSlide;
             @Slide.canceled -= instance.OnSlide;
+            @Shift.started -= instance.OnShift;
+            @Shift.performed -= instance.OnShift;
+            @Shift.canceled -= instance.OnShift;
         }
 
         public void RemoveCallbacks(IControlesActions instance)
@@ -366,6 +395,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnHorizontal(InputAction.CallbackContext context);
         void OnVerical(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
+        void OnShift(InputAction.CallbackContext context);
     }
     public interface IPauseActions
     {
