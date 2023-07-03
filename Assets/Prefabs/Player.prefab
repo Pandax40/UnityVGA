@@ -216,14 +216,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.9, y: 1.25}
-      - {x: 0.16, y: 1.25}
+    - - {x: 0.32, y: 1.13}
+      - {x: -0.22, y: 0.91}
       - {x: -1.37, y: -0.48}
       - {x: -1.37, y: -1.7600001}
       - {x: -0.17, y: -1.7600001}
-      - {x: 0.93, y: -1.56}
-      - {x: 1.1, y: -0.8600001}
-      - {x: 1.1, y: 0.84}
+      - {x: 0.61, y: -1.56}
+      - {x: 0.8, y: -0.8600001}
+      - {x: 0.8, y: 0.84}
   m_UseDelaunayMesh: 0
 --- !u!60 &3015026561234765856
 PolygonCollider2D:
@@ -349,6 +349,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a064f378-fc12-402c-9d79-35af194c6beb
     m_ActionName: Controles/Slide[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 584717103700282051}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: Shift
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7fd5cd11-461b-4198-a334-1e7fa83642d9
+    m_ActionName: Controles/Shift[/Keyboard/ctrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fed3663b-b1a2-45cd-9e49-6f92bf7ca6aa
+    m_ActionName: Pause/Pause[/Keyboard/p,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Controles
@@ -368,8 +388,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HorizontalVelocty: 8
   VerticalVelocty: 16
-  SlideForce: 15
-  SlideDrag: 2
+  SlideForce: 20
+  SlideDrag: 4.5
+  WallJumpForce: 20
+  WallJumpMaxFallVelocity: 1
   Animator: {fileID: 4542146870827516232}
   animationColiders:
   - {fileID: 6969450863067420971}
