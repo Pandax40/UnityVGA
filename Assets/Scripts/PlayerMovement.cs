@@ -140,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidbody.AddForce(Vector2.up * VerticalVelocty, ForceMode2D.Impulse);
             timerWallGrap = 0.2f;
+            canJump = false;
         }
         else if (!canJump && !canMoveForward && wantJump && firstWallJump && timerWallGrap == 0f) //WallJump
         {
