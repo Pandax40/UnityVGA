@@ -1,0 +1,14 @@
+CREDITS
+
+Idea / Desarrollo: 
+-David Berrocal 
+-Marc Ribas 
+-Ivan Moreno
+
+Fonts:
+-Pixel Operator (Jayvee Enaguas)
+
+Sprites:
+-Warrior (Clembod)
+-Scene Assets (Nauris Amatnieks)
+-PixelAntasy (Mobile Game Graphics)
