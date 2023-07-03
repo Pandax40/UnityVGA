@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float HorizontalVelocty;
     [SerializeField] private float VerticalVelocty;
+    [SerializeField] private float RechargeJump;        //Recarga de la potencia del salto en segundos
     [SerializeField] private float SlideForce;
     [SerializeField] private float SlideDrag;
     [SerializeField] private float WallJumpForce;
@@ -21,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canJump;    //Si puede saltar.
     private bool wasJumping; //Si estaba saltado. [Coliders]
-    private bool wantJump;   //Si la Key esta pulsada. [Salto Continuo]
+    private bool wantJump;   
+    private bool needJump;   //Si la Key esta pulsada. [Salto Continuo]
     private bool canSlide;
     private bool canMoveForward;    //Detecta si hay pared
     private bool firstWallJump;     //Evita el salto repetido en la pared
@@ -31,7 +33,8 @@ public class PlayerMovement : MonoBehaviour
     private float raycastGroundDistance;
     private float raycastHorizontalDistance;
     private float speed;        //Velocidad en teoria
-    private float auxSpeed; //Evita bugs
+    private float auxSpeed;     //Evita bugs
+    private float powerJump;    //Jump progresivo
     private float direction;    //Direccion actual
     private float auxDirection; //Evita bugs
     private float timerWallGrap;
@@ -58,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         canMoveForward = true;
         wantJump = false;
         actIndex = 0;
+        powerJump = 0f;
     }
 
 
@@ -136,10 +140,12 @@ public class PlayerMovement : MonoBehaviour
         if (!firstSlide) 
             firstSlide = canJump;
 
-        //Jumping continuo y WallJump
+        //Jump y WallJump
         if (canJump && wantJump && canSlide) //Salto normal
         {
-            rigidbody.AddForce(Vector2.up * VerticalVelocty, ForceMode2D.Impulse);
+            rigidbody.AddForce(Vector2.up * VerticalVelocty * powerJump, ForceMode2D.Impulse);
+            powerJump = 0f;
+            wantJump = false;
             timerWallGrap = 0.2f;
         }
         else if (!canJump && !canMoveForward && wantJump && firstWallJump && timerWallGrap == 0f) //WallJump
@@ -158,7 +164,6 @@ public class PlayerMovement : MonoBehaviour
         if (!canMove)
             canMove = auxSpeed != speed || canJump;
 
-
         //Actualizar colider
         if (Mathf.Clamp(rigidbody.velocity.x, -1f, 1f) != 0f)
         {
@@ -170,6 +175,20 @@ public class PlayerMovement : MonoBehaviour
                 ColiderActivator(0);
         }
         else ColiderActivator(0);
+
+        //Jump con potencia
+        if (needJump && powerJump < 1f) //Recarga
+        {
+            powerJump += Time.fixedDeltaTime / RechargeJump;
+            if(powerJump > 1f) powerJump = 1f;
+        }
+        else if (!needJump && powerJump > 0f || needJump) //Suelta antes del 100% o al llegar
+            wantJump = true;
+        if(!needJump && !canJump) //Cancela si se suelta en el aire
+        {
+            wantJump = false;
+            powerJump = 0f;
+        }
     }
 
     private void ColiderActivator(int index)
@@ -187,7 +206,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void VerticalMove(InputAction.CallbackContext context)
     {
-        wantJump = context.performed;
+        needJump = context.performed;               
     }
 
     public void Slide(InputAction.CallbackContext context)
