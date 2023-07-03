@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7737382129095056085}
   - component: {fileID: 2172955059713172295}
   - component: {fileID: 609702563090436713}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma Hielo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

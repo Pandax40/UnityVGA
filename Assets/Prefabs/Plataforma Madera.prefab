@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8778147347431875955}
   - component: {fileID: 1874184302856644906}
   - component: {fileID: 2374898462544561259}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma Madera
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5628253408943281712}
   - component: {fileID: 2935175893172513910}
   - component: {fileID: 4352948925817285275}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma Madera Hielo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

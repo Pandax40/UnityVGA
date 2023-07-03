@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4243853079700279047}
   - component: {fileID: 3737320163696295359}
   - component: {fileID: 5184310177720775420}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma Castillo Hielo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

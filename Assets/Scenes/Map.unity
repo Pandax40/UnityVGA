@@ -613,14 +613,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 584717103700282051, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: RechargeJump
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 584717103700282051, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: WallJumpMaxFallVelocity
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1352420827248955513, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
       propertyPath: m_RootOrder
       value: 1

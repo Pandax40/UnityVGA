@@ -388,10 +388,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HorizontalVelocty: 8
   VerticalVelocty: 16
+  RechargeJump: 0.09
   SlideForce: 20
   SlideDrag: 4.5
   WallJumpForce: 20
-  WallJumpMaxFallVelocity: 1
+  WallJumpMaxFallVelocity: 2
   Animator: {fileID: 4542146870827516232}
   animationColiders:
   - {fileID: 6969450863067420971}
