@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Nubes2Anim : MonoBehaviour
+public class Nubes : MonoBehaviour
 {
     private SpriteRenderer nube;
+    [SerializeField] private int Speed;
 
     void Start()
     {
@@ -13,6 +14,6 @@ public class Nubes2Anim : MonoBehaviour
 
     void Update()
     {
-        nube.size += new Vector2(2 * Time.deltaTime, 0);
+        nube.size += new Vector2(Speed * Time.deltaTime, 0);
     }
 }
