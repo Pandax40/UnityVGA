@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float HorizontalVelocty;
     [SerializeField] private float VerticalVelocty;
+    [SerializeField] private float FallForce;
     [SerializeField] private float SlideForce;
     [SerializeField] private float SlideDrag;
     [SerializeField] private float WallJumpForce;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private bool firstWallJump;     //Evita el salto repetido en la pared
     private bool firstSlide;        //Evita el doble slide de pared
     private bool canMove;
+    private bool canFastFall;
 
     private float raycastGroundDistance;
     private float raycastHorizontalDistance;
@@ -203,6 +205,17 @@ public class PlayerMovement : MonoBehaviour
             //Fuerza en la direccion actual
             rigidbody.AddForce(new Vector2(SlideForce * direction, 0f), ForceMode2D.Impulse);
         }
+    }
+
+    public void FastFall(InputAction.CallbackContext context)
+    {
+        if(canFastFall && context.performed)
+        {
+            rigidbody.velocity = Vector2.zero;
+            rigidbody.AddForce(Vector2.down * FallForce, ForceMode2D.Impulse);
+            canFastFall = false;
+        }
+        if(context.ReadValue<float>() == 0f && !canFastFall) canFastFall = true;
     }
 
     /*public void Shift(InputAction.CallbackContext context)
