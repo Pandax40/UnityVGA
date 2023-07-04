@@ -270,7 +270,7 @@ AnimatorState:
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
+  m_WriteDefaultValues: 0
   m_Mirror: 0
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
@@ -278,10 +278,10 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: -5470740771827180989}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: Horizontal Speed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-  m_TimeParameter: Slide
+  m_TimeParameter: Horizontal Speed
 --- !u!1102 &-1029042473125121693
 AnimatorState:
   serializedVersion: 6
@@ -354,31 +354,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Jumping Velocity
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Horizontal Speed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Wall
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Slide
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -503,7 +503,7 @@ AnimatorStateMachine:
     m_Position: {x: 890, y: -160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1501569182946966440}
-    m_Position: {x: 270, y: 120, z: 0}
+    m_Position: {x: 270, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1029042473125121693}
     m_Position: {x: 520, y: -130, z: 0}

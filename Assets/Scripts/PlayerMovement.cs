@@ -13,12 +13,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float SlideDrag;
     [SerializeField] private float WallJumpForce;
     [SerializeField] private float WallJumpMaxFallVelocity;
+    [SerializeField] private float IceSlideForce;
     [SerializeField] private Animator Animator;
     [SerializeField] private Collider2D[] animationColiders; //Orden: [0]Idle/Jump [1]Run/AirDash [2]Slide/Shift
 
     private new Rigidbody2D rigidbody;
     private LayerMask layerGround;
     private LayerMask layerWallJump;
+    private Collider2D rayCollider;
 
     private bool canJump;    //Si puede saltar.
     private bool wasJumping; //Si estaba saltado. [Coliders]
@@ -29,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private bool firstSlide;        //Evita el doble slide de pared
     private bool canMove;
     private bool canFastFall;
+    private bool isIceSliding;
 
     private float raycastGroundDistance;
     private float raycastHorizontalDistance;
@@ -65,9 +68,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Redondear la velocidad [BUG ANIMACIONES]
-        string roundVelociadX = rigidbody.velocity.x.ToString("F2");
+        string roundVelociadX = rigidbody.velocity.x.ToString("F1");
         float fRoundVelociadX = float.Parse(roundVelociadX);
-        string roundVelociadY = rigidbody.velocity.y.ToString("F2");
+        string roundVelociadY = rigidbody.velocity.y.ToString("F1");
         float fRoundVelociadY = float.Parse(roundVelociadY);
         rigidbody.velocity = new Vector2(fRoundVelociadX, fRoundVelociadY);
 
@@ -78,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Detectar si se pude saltar
         Vector3 raycastHorizontalCenter = transform.position + new Vector3(-0.233f, 0, 0) * direction;
-        Collider2D rayCollider = Physics2D.Raycast(raycastHorizontalCenter, Vector2.down, raycastGroundDistance, layerGround).collider;
+        rayCollider = Physics2D.Raycast(raycastHorizontalCenter, Vector2.down, raycastGroundDistance, layerGround).collider;
         canJump = rayCollider != null && rayCollider.enabled;
         if (canJump == false)
         {
@@ -91,6 +94,10 @@ public class PlayerMovement : MonoBehaviour
             canJump = rayCollider != null && rayCollider.enabled;
         }
 
+        //Ice Sliding
+        isIceSliding = rayCollider != null && rayCollider.tag == "Ice";
+        if (!isIceSliding && !canSlide) rigidbody.drag = SlideDrag;
+        
         //Detectar si hay una pared
         Vector3 raycastVerticalCenter = transform.position + new Vector3(0, 1.6f, 0);
         canMoveForward = Physics2D.Raycast(raycastVerticalCenter, Vector2.right * direction, raycastHorizontalDistance, layerWallJump).collider == null;
@@ -100,11 +107,12 @@ public class PlayerMovement : MonoBehaviour
         Animator.SetBool("Slide", !canSlide);
         Animator.SetBool("Wall", !canJump && !canMoveForward && timerWallGrap == 0f);
         Animator.SetFloat("Jumping Velocity", Mathf.Clamp(rigidbody.velocity.y, -1f, 1f));
-        if(canMoveForward || (!canMoveForward && auxDirection != direction))
+        if (isIceSliding)
+            Animator.SetFloat("Horizontal Speed", Mathf.Clamp(speed, -1f, 1f));
+        else if ((canMoveForward || (!canMoveForward && auxDirection != direction)) && !isIceSliding)
             Animator.SetFloat("Horizontal Speed", Mathf.Clamp(rigidbody.velocity.x, -1f, 1f));
         else
             Animator.SetFloat("Horizontal Speed", 0f);
-
         //Timer
         if (timerWallGrap > 0f)
         {
@@ -127,14 +135,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Move
+        //Move and Ice Sliding
         if (canSlide && timerWallMove == 0f && canMove)
-            rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
-
+        {
+            if(isIceSliding)
+            {
+                rigidbody.drag = 2f;
+                if (speed < rigidbody.velocity.x && speed != 0) 
+                    rigidbody.velocity = new Vector2(rigidbody.velocity.x - IceSlideForce, rigidbody.velocity.y);
+                else if(speed > rigidbody.velocity.x && speed != 0) 
+                    rigidbody.velocity = new Vector2(rigidbody.velocity.x + IceSlideForce, rigidbody.velocity.y);
+            }
+            else
+            {
+                rigidbody.drag = 0f;
+                rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
+            }
+        }
+            
         //Rotacion objeto
-        if (rigidbody.velocity.x < 0)
+        if (rigidbody.velocity.x < 0 || (isIceSliding && speed < 0 && canSlide))
             transform.eulerAngles = new Vector3(0, 180, 0);
-        else if (rigidbody.velocity.x > 0)
+        else if (rigidbody.velocity.x > 0 || (isIceSliding && speed > 0 && canSlide))
             transform.eulerAngles = new Vector3(0, 0, 0);
 
         //Slide restrictivo
@@ -171,7 +193,7 @@ public class PlayerMovement : MonoBehaviour
             canMove = auxSpeed != speed || canJump;
 
         //Actualizar colider
-        if (Mathf.Clamp(rigidbody.velocity.x, -1f, 1f) != 0f)
+        if (Mathf.Clamp(speed, -1f, 1f) != 0f || !canJump && Mathf.Clamp(rigidbody.velocity.x, -1f, 1f) != 0f)
         {
             if (!wasJumping && !canSlide)
                 ColiderActivator(2);
@@ -210,10 +232,10 @@ public class PlayerMovement : MonoBehaviour
             wasJumping = !canJump;
 
             //Drag para reducir velocidad
-            rigidbody.drag = SlideDrag;
+            if(!isIceSliding) rigidbody.drag = SlideDrag;
 
             //Fuerza en la direccion actual
-            rigidbody.AddForce(new Vector2(SlideForce * direction, 0f), ForceMode2D.Impulse);
+            rigidbody.AddForce(new Vector2(SlideForce * speed/HorizontalVelocty, 0f), ForceMode2D.Impulse);
         }
     }
 

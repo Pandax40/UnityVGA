@@ -386,6 +386,7 @@ MonoBehaviour:
   SlideDrag: 4.5
   WallJumpForce: 20
   WallJumpMaxFallVelocity: 5
+  IceSlideForce: 0.2
   Animator: {fileID: 4542146870827516232}
   animationColiders:
   - {fileID: 7691777320442125044}

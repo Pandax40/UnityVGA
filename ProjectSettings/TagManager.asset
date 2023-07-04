@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
+  - Ice
+  - Dirt
   layers:
   - Default
   - TransparentFX
