@@ -14,7 +14,7 @@ public class Platform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Player.transform.position.y <= transform.position.y + 1.675f) collider.enabled = false;
+        if(GameManager.Instance.Player.transform.position.y <= transform.position.y + 1.675f) collider.enabled = false;
         else collider.enabled = true;
     }
 }
