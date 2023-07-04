@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         layerGround = LayerMask.GetMask("Ground");
         layerWallJump = LayerMask.GetMask("Wall Jump");  
         raycastGroundDistance = 1.7f;       //Mejor distancia al suelo
-        raycastHorizontalDistance = 0.9f;  //Mejor distancia a la pared
+        raycastHorizontalDistance = 0.8f;  //Mejor distancia a la pared
 
         canSlide = true;
         canMoveForward = true;

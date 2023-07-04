@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1352420827248955513}
   - component: {fileID: 5670976167166226746}
   - component: {fileID: 6624061453800881078}
-  - component: {fileID: 6969450863067420971}
-  - component: {fileID: 935998413375892403}
-  - component: {fileID: 3015026561234765856}
+  - component: {fileID: 7691777320442125044}
+  - component: {fileID: 9200251992811652721}
+  - component: {fileID: 6686415894140421827}
   - component: {fileID: 5862676011788400524}
   - component: {fileID: 584717103700282051}
   - component: {fileID: 4542146870827516232}
@@ -118,8 +118,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &6969450863067420971
-PolygonCollider2D:
+--- !u!61 &7691777320442125044
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -150,7 +150,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.32, y: 0.44}
+  m_Offset: {x: -0.23, y: 0.004}
   m_SpriteTilingProperty:
     border: {x: 1.8000001, y: 0.1, z: 2.8, w: 1}
     pivot: {x: 0.45, y: 0.4}
@@ -160,20 +160,11 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -1.102242, y: -2.1001549}
-      - {x: -1.3999999, y: -1.2015685}
-      - {x: -1.3999999, y: -0.40055722}
-      - {x: -0.9143968, y: 1.1044488}
-      - {x: -0.42755315, y: 1.2322834}
-      - {x: 0.02751559, y: 1.0958107}
-      - {x: 0.46999997, y: 0.60211486}
-      - {x: 0.46999997, y: -1.1031848}
-      - {x: -0.001970768, y: -2.1000164}
-  m_UseDelaunayMesh: 0
---- !u!60 &935998413375892403
-PolygonCollider2D:
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 3.33}
+  m_EdgeRadius: 0
+--- !u!61 &9200251992811652721
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -204,7 +195,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: 0.1}
+  m_Offset: {x: -0.23, y: -0.29}
   m_SpriteTilingProperty:
     border: {x: 1.8000001, y: 0.1, z: 2.8, w: 1}
     pivot: {x: 0.45, y: 0.4}
@@ -214,19 +205,11 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.32, y: 1.13}
-      - {x: -0.22, y: 0.91}
-      - {x: -1.37, y: -0.48}
-      - {x: -1.37, y: -1.7600001}
-      - {x: -0.17, y: -1.7600001}
-      - {x: 0.61, y: -1.56}
-      - {x: 0.8, y: -0.8600001}
-      - {x: 0.8, y: 0.84}
-  m_UseDelaunayMesh: 0
---- !u!60 &3015026561234765856
-PolygonCollider2D:
+  serializedVersion: 2
+  m_Size: {x: 1.99, y: 2.75}
+  m_EdgeRadius: 0
+--- !u!61 &6686415894140421827
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -257,7 +240,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.15, y: -0.746}
   m_SpriteTilingProperty:
     border: {x: 1.8000001, y: 0.1, z: 2.8, w: 1}
     pivot: {x: 0.45, y: 0.4}
@@ -267,15 +250,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.36, y: 0.16}
-      - {x: -0.84, y: 0.16}
-      - {x: -1.46, y: -0.21}
-      - {x: -1.73, y: -1.1600001}
-      - {x: -1.57, y: -1.6600001}
-      - {x: 1.29, y: -1.66}
-  m_UseDelaunayMesh: 0
+  serializedVersion: 2
+  m_Size: {x: 2.57, y: 1.83}
+  m_EdgeRadius: 0
 --- !u!114 &5862676011788400524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,16 +365,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HorizontalVelocty: 8
   VerticalVelocty: 16
-  RechargeJump: 0.09
   SlideForce: 20
   SlideDrag: 4.5
   WallJumpForce: 20
   WallJumpMaxFallVelocity: 2
   Animator: {fileID: 4542146870827516232}
   animationColiders:
-  - {fileID: 6969450863067420971}
-  - {fileID: 935998413375892403}
-  - {fileID: 3015026561234765856}
+  - {fileID: 7691777320442125044}
+  - {fileID: 9200251992811652721}
+  - {fileID: 6686415894140421827}
 --- !u!95 &4542146870827516232
 Animator:
   serializedVersion: 5
