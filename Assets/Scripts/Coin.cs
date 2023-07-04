@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-
-    void Start()
+    private bool isTaked = false;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !isTaked)
         {
+            isTaked = true;
             GameManager.Instance.AddCoin();
-            Destroy(gameObject);
+            Destroy(gameObject, 0.1f);
         }
     }
 

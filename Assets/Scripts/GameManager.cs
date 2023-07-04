@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour
         Instance = this;
         Player = PlayerScene;
         Interfaz = UIEstatica;
+        Platform.Probability = 10;
         Monedas = 3;
         Health = 3;
-        Interfaz.UpdateScreen();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -37,5 +37,6 @@ public class GameManager : MonoBehaviour
     public void AddCoin()
     {
         Monedas++;
+        Interfaz.UpdateScreen();
     }
 }

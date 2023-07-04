@@ -80,6 +80,11 @@ public class SectionManager : MonoBehaviour
                 sectionTransforms[i][j] = auxVector[2 + j + (matrixColumn+1) * i];
     }
 
+    public Vector3 GetSpawnPos()
+    {
+        int index = Random.Range(0, matrixColumn);
+        return platformsColiders[0][index].position + new Vector3(0, 1.8f, 0);
+    }
     // Update is called once per frame
     void Update()
     {

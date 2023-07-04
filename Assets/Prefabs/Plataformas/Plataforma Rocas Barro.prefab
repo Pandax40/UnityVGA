@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2651241136517374320}
   - component: {fileID: 7882973458665793717}
   - component: {fileID: 3571837185699424258}
+  - component: {fileID: 4849503214920707087}
   m_Layer: 3
   m_Name: Plataforma Rocas Barro
   m_TagString: Untagged
@@ -130,3 +131,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.8, y: 0.9}
   m_EdgeRadius: 0
+--- !u!114 &4849503214920707087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125171979033592294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb934b6de152e4c45a072756319dbe0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 2270814068727094264, guid: 13bf4913ddacae747b870ab34768097b, type: 3}
