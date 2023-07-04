@@ -62,6 +62,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Fast Fall"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d515112-246d-4031-8fd8-9ae7d6f37f39"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -185,6 +194,28 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Shift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2ad3339-9d0a-4b25-8d3a-7e7d846b2095"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fast Fall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b63a550d-d034-4a28-a7fc-6b1eddde4ad0"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fast Fall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -236,6 +267,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Controles_Verical = m_Controles.FindAction("Verical", throwIfNotFound: true);
         m_Controles_Slide = m_Controles.FindAction("Slide", throwIfNotFound: true);
         m_Controles_Shift = m_Controles.FindAction("Shift", throwIfNotFound: true);
+        m_Controles_FastFall = m_Controles.FindAction("Fast Fall", throwIfNotFound: true);
         // Pause
         m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
         m_Pause_Pause = m_Pause.FindAction("Pause", throwIfNotFound: true);
@@ -304,6 +336,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controles_Verical;
     private readonly InputAction m_Controles_Slide;
     private readonly InputAction m_Controles_Shift;
+    private readonly InputAction m_Controles_FastFall;
     public struct ControlesActions
     {
         private @InputSystem m_Wrapper;
@@ -312,6 +345,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @Verical => m_Wrapper.m_Controles_Verical;
         public InputAction @Slide => m_Wrapper.m_Controles_Slide;
         public InputAction @Shift => m_Wrapper.m_Controles_Shift;
+        public InputAction @FastFall => m_Wrapper.m_Controles_FastFall;
         public InputActionMap Get() { return m_Wrapper.m_Controles; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -333,6 +367,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Shift.started += instance.OnShift;
             @Shift.performed += instance.OnShift;
             @Shift.canceled += instance.OnShift;
+            @FastFall.started += instance.OnFastFall;
+            @FastFall.performed += instance.OnFastFall;
+            @FastFall.canceled += instance.OnFastFall;
         }
 
         private void UnregisterCallbacks(IControlesActions instance)
@@ -349,6 +386,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Shift.started -= instance.OnShift;
             @Shift.performed -= instance.OnShift;
             @Shift.canceled -= instance.OnShift;
+            @FastFall.started -= instance.OnFastFall;
+            @FastFall.performed -= instance.OnFastFall;
+            @FastFall.canceled -= instance.OnFastFall;
         }
 
         public void RemoveCallbacks(IControlesActions instance)
@@ -418,6 +458,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnVerical(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
         void OnShift(InputAction.CallbackContext context);
+        void OnFastFall(InputAction.CallbackContext context);
     }
     public interface IPauseActions
     {
