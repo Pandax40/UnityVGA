@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask layerWallJump;
     private Collider2D rayCollider;
 
-    private bool canJump;    //Si puede saltar.
+    public bool canJump { get; private set; }    //Si puede saltar.
     private bool wasJumping; //Si estaba saltado. [Coliders]
     private bool wantJump;
     private bool canSlide;
