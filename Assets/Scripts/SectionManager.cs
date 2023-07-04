@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.AI;
 
 public class SectionManager : MonoBehaviour
 {
+    [SerializeField] private GameObject[] Prefabs;
+
     private Transform[][] sectionTransforms;
     private Transform[][] platformsColiders;
     private int matrixRow = 2;
@@ -16,20 +19,21 @@ public class SectionManager : MonoBehaviour
     void Start()
     {
         FillMatrix();
-        FillTransforms();
+        Queue<GameObject> prefabs = GenerateQueue();
+        GenerateTransforms(prefabs);
         FixPlatform(true);
-       
+    }
 
-
-        /*for (int i = 1; i < matrixRow; i++)
+    private Queue<GameObject> GenerateQueue() 
+    {
+        Queue<GameObject> queuePrefabsRandom = new Queue<GameObject>();
+        int maxIndex = Prefabs.Length;
+        for (int i = 0; i < matrixColumn*matrixRow; i++)
         {
-            for (int j = 0; j < matrixColumn; j++)
-            {
-                Vector3 originPlatform = platformsColiders[i][j].transform.position;
-                Vector3 targetPlatform = platformsColiders[0][j+1].transform.position;
-            }
-        }*/
-            
+            int index = Random.Range(0, maxIndex);
+            queuePrefabsRandom.Enqueue(Prefabs[index]);
+        }
+        return queuePrefabsRandom;
     }
 
     private void FixPlatform(bool debugInfo)
@@ -49,7 +53,7 @@ public class SectionManager : MonoBehaviour
         platformsColiders[0][indexHightCheck].transform.position = posUpPlatform;
     }
 
-    private void FillTransforms()
+    private void GenerateTransforms(Queue<GameObject> gameObjects)
     {
         platformsColiders = new Transform[matrixRow][];
 
@@ -58,7 +62,10 @@ public class SectionManager : MonoBehaviour
 
         for (int i = 0; i < matrixRow; i++)
             for (int j = 0; j < matrixColumn; j++)
-                platformsColiders[i][j] = sectionTransforms[i][j].GetComponent<PlatformGenerator>().GeneratePlatform();
+            {
+                PlatformGenerator platform = sectionTransforms[i][j].GetComponent<PlatformGenerator>();
+                platformsColiders[i][j] = platform.GeneratePlatform(gameObjects.Dequeue());
+            }   
     }
 
     private void FillMatrix()

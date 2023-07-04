@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlatformGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject platformPrefab;
-
     private GameObject platform;
     private float distanceX;
     private float distanceY;
@@ -35,7 +33,7 @@ public class PlatformGenerator : MonoBehaviour
         }*/
     }
 
-    public Transform GeneratePlatform()
+    public Transform GeneratePlatform(GameObject platformPrefab)
     {
         float randomPosX = Random.Range(-distanceX, distanceX) + transform.position.x;
         float randomPosY = Random.Range(-distanceY, distanceY) + transform.position.y;
