@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dedbdf930acde394ebde0fcda1dfdc90
+guid: a56a3ed956c73ad41b2b64682d427edf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 4, y: 7, z: 9, w: 5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CofreBarato2_0
+      name: coinx2_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 7
-        width: 19
-        height: 20
+        x: 0
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 873cb15b366cac14d8295319f8fc2fb6
-      internalID: 1077670661
+      spriteID: 80be05e928494cf46825bb1aeb11ca9d
+      internalID: -2118975574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coinx2_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3438a0cf8e3e7504a896c269614376f4
+      internalID: -1464182621
       vertices: []
       indices: 
       edges: []
@@ -147,14 +168,16 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CofreBarato2_0: 1077670661
+      coinx2_0: -2118975574
+      coinx2_1: 1942419804
+      coinx2_2: -1464182621
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

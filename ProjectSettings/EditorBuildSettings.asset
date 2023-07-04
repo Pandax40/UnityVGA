@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Castle.unity
     guid: 6d0c05f944901d7498c84d223b2b0a0c
   - enabled: 1
-    path: Assets/Scenes/DavidScene.unity
+    path: Assets/Scenes/Pause.unity
     guid: b1d322432b59e984db6dbe6cd17df3c3
   m_configObjects: {}

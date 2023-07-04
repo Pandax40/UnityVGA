@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dedbdf930acde394ebde0fcda1dfdc90
+guid: c07d6d22630f1394c93488c4aba3fd97
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 4, y: 7, z: 9, w: 5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CofreBarato2_0
+      name: WallJumpIcon_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 7
-        width: 19
-        height: 20
+        x: 0
+        y: 33
+        width: 316
+        height: 425
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 873cb15b366cac14d8295319f8fc2fb6
-      internalID: 1077670661
+      spriteID: 62f883a896ec118469a9a7544e0c5ae9
+      internalID: 1234355981
       vertices: []
       indices: 
       edges: []
@@ -147,14 +147,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CofreBarato2_0: 1077670661
+      WallJumpIcon_0: 1234355981
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
