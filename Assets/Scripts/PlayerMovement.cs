@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canJump { get; private set; }    //Si puede saltar.
     private bool wasJumping; //Si estaba saltado. [Coliders]
     private bool wantJump;
-    private bool canSlide;
+    public bool canSlide { get; private set; }
     private bool canMoveForward;    //Detecta si hay pared
     private bool firstWallJump;     //Evita el salto repetido en la pared
     private bool firstSlide;        //Evita el doble slide de pared

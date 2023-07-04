@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6152194025499098828}
   - component: {fileID: 6062869414248285935}
   m_Layer: 0
-  m_Name: ParticulasCorrer Castle
+  m_Name: ParticulasCorrer Forest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 0.45490196}
+      maxColor: {r: 0.58431375, g: 0.41568628, b: 0.28235295, a: 0.45490196}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
