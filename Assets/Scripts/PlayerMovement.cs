@@ -78,9 +78,18 @@ public class PlayerMovement : MonoBehaviour
 
         //Detectar si se pude saltar
         Vector3 raycastHorizontalCenter = transform.position + new Vector3(-0.233f, 0, 0) * direction;
-        canJump = Physics2D.Raycast(raycastHorizontalCenter, Vector2.down, raycastGroundDistance, layerGround).collider != null;
-        if (canJump == false) canJump = Physics2D.Raycast(raycastHorizontalCenter + new Vector3(-distanceRaycasts, 0, 0), Vector2.down, raycastGroundDistance, layerGround).collider != null;
-        if (canJump == false) canJump = Physics2D.Raycast(raycastHorizontalCenter + new Vector3(distanceRaycasts, 0, 0), Vector2.down, raycastGroundDistance, layerGround).collider != null;
+        Collider2D rayCollider = Physics2D.Raycast(raycastHorizontalCenter, Vector2.down, raycastGroundDistance, layerGround).collider;
+        canJump = rayCollider != null && rayCollider.enabled;
+        if (canJump == false)
+        {
+            rayCollider = Physics2D.Raycast(raycastHorizontalCenter + new Vector3(-distanceRaycasts, 0, 0), Vector2.down, raycastGroundDistance, layerGround).collider;
+            canJump = rayCollider != null && rayCollider.enabled;
+        }
+        if (canJump == false)
+        {
+            rayCollider = Physics2D.Raycast(raycastHorizontalCenter + new Vector3(distanceRaycasts, 0, 0), Vector2.down, raycastGroundDistance, layerGround).collider;
+            canJump = rayCollider != null && rayCollider.enabled;
+        }
 
         //Detectar si hay una pared
         Vector3 raycastVerticalCenter = transform.position + new Vector3(0, 1.6f, 0);
@@ -140,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
         //Jump y WallJump
         if (canJump && wantJump && canSlide) //Salto normal
         {
+            rigidbody.velocity = Vector3.zero;
             rigidbody.AddForce(Vector2.up * VerticalVelocty, ForceMode2D.Impulse);
             timerWallGrap = 0.2f;
             canJump = false;

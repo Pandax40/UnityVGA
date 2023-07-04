@@ -253,17 +253,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &194112148 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 584717103700282051, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-  m_PrefabInstance: {fileID: 2260573630990745800}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d11b665855225c41b7d37517f1c657b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &203760793
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,10 +613,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 584717103700282051, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: FallForce
-      value: 18
-      objectReference: {fileID: 0}
     - target: {fileID: 1352420827248955513, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -671,46 +656,6 @@ PrefabInstance:
     - target: {fileID: 1352420827248955513, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
-      value: 3d515112-246d-4031-8fd8-9ae7d6f37f39
-      objectReference: {fileID: 0}
-    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
-      value: Controles/Fast Fall[/Keyboard/s,/Keyboard/downArrow]
-      objectReference: {fileID: 0}
-    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 194112148}
-    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FastFall
-      objectReference: {fileID: 0}
-    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerMovement, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7502305412776154647, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
       propertyPath: m_Name

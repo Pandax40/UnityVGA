@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 986bb04c1302bf44eb9fe39776443509, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -346,6 +346,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: fed3663b-b1a2-45cd-9e49-6f92bf7ca6aa
     m_ActionName: Pause/Pause[/Keyboard/p,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 584717103700282051}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: FastFall
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3d515112-246d-4031-8fd8-9ae7d6f37f39
+    m_ActionName: Controles/Fast Fall[/Keyboard/s,/Keyboard/downArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Controles
@@ -363,12 +379,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d11b665855225c41b7d37517f1c657b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HorizontalVelocty: 8
-  VerticalVelocty: 16
+  HorizontalVelocty: 10
+  VerticalVelocty: 25
+  FallForce: 18
   SlideForce: 20
   SlideDrag: 4.5
   WallJumpForce: 20
-  WallJumpMaxFallVelocity: 2
+  WallJumpMaxFallVelocity: 5
   Animator: {fileID: 4542146870827516232}
   animationColiders:
   - {fileID: 7691777320442125044}

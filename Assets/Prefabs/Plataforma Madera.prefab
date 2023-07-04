@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8778147347431875955}
   - component: {fileID: 1874184302856644906}
   - component: {fileID: 2374898462544561259}
+  - component: {fileID: 1478003425975902369}
   m_Layer: 3
   m_Name: Plataforma Madera
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1874184302856644906
 SpriteRenderer:
@@ -128,5 +129,17 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.01, y: 0.77}
+  m_Size: {x: 4.8, y: 0.7}
   m_EdgeRadius: 0
+--- !u!114 &1478003425975902369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522240195022813721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb934b6de152e4c45a072756319dbe0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
