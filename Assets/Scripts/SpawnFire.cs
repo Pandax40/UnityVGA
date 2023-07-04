@@ -20,15 +20,18 @@ public class SpawnFire : MonoBehaviour
     {
         auxFreq = freq;
         timer = 0;
-        float randomx = Random.Range(-12, 12);
-        centerPosition = new Vector2(randomx, 20);
+        centerPosition = new Vector2(Random.Range(-12, 12), 20);
     }
 
     // Update is called once per frame
     void Update()
     {
         if(timer > 0f)
+        {
             timer -= Time.deltaTime;
+            if(timer <= 0) centerPosition = new Vector2(Random.Range(-12, 12), 20);
+        }
+            
     }
 
     private void FixedUpdate()
