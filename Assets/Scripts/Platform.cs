@@ -15,7 +15,7 @@ public class Platform : MonoBehaviour
     void Start()
     {
         collider = GetComponent<Collider2D>();
-        timer = Random.Range(1, 2);
+        timer = Random.Range(5, 6);
     }
 
     // Update is called once per frame
@@ -31,10 +31,10 @@ public class Platform : MonoBehaviour
             int random = Random.Range(0, 100);
             if(random < Probability && coinSpawned == null)
             {
-                coinSpawned = Instantiate(coinPrefab, transform.position + new Vector3(0,1.8f,0), Quaternion.identity);
+                coinSpawned = Instantiate(coinPrefab, transform.position + new Vector3(0,1.7f,0), Quaternion.identity);
                 Destroy(coinSpawned, 8f);
             }
-            timer = Random.Range(1, 2);
+            timer = Random.Range(5, 6);
         }
     }
 }

@@ -13,6 +13,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject PlayerScene;
     [SerializeField] private UI UIEstatica;
 
+    //TODO:
+    // - Una array de las propiedades del pesonaje
+    // - Array de tiempos.
+    // - Array de structs con las propiedades del mapa y probabilidades
+    // - Guardar el estado del juego.
+    // IMPORANTE: Que a partir de estos valores el mapa y el jugador no dependa de nada mas.
+
     void Awake()
     {
         if(Instance != null)

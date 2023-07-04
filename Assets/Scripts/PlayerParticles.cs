@@ -15,20 +15,16 @@ public class PlayerParticles : MonoBehaviour
     {
         FallDetection = false;
     }
+
     void FixedUpdate()
     {
         if (playerMovement.canJump && playerMovement.GetComponent<Rigidbody2D>().velocity.x != 0 && playerMovement.canSlide)
-        {
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
-        }
         else
-        {
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        }
-        if (!playerMovement.canJump)
-        {
-            FallDetection = true;
-        }
+
+        if (!FallDetection)
+            FallDetection = !playerMovement.canJump;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

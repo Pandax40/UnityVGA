@@ -7393,6 +7393,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8001349894351173826, guid: 0f8417628bc2ab041a4f547b5b49742d, type: 3}
+      propertyPath: Prefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001349894351173826, guid: 0f8417628bc2ab041a4f547b5b49742d, type: 3}
+      propertyPath: Prefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 5158451251294076288, guid: bcffd67319152fd4bba18539e082030b, type: 3}
+    - target: {fileID: 8001349894351173826, guid: 0f8417628bc2ab041a4f547b5b49742d, type: 3}
+      propertyPath: Prefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 8121925190146804952, guid: f978fb006ab715f419a891a48dc472d5, type: 3}
     - target: {fileID: 8459817330033196975, guid: 0f8417628bc2ab041a4f547b5b49742d, type: 3}
       propertyPath: m_Name
       value: Section Manager
