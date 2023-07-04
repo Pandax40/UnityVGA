@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
-    private TextMeshPro coinText;
+    private TextMeshProUGUI coinText;
     // Start is called before the first frame update
     void Start()
     {
-        coinText = GetComponent<TextMeshPro>();
+        coinText = GetComponentInChildren<TextMeshProUGUI>();
         UpdateScreen();
     }
 
@@ -21,6 +21,6 @@ public class UI : MonoBehaviour
 
     public void UpdateScreen()
     {
-        coinText.text = GameManager.Instance.Monedas.ToString();
+        coinText.text = GameManager.Instance.Health.ToString();
     }
 }
