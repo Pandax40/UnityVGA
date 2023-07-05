@@ -42,7 +42,7 @@ public class SpawnFire : MonoBehaviour
         if (FirstSpawn && timer > 0)
         {
             Column = Instantiate(WarningColumn, new Vector3(centerPosition.x, 0, 0f), Quaternion.identity);
-            Destroy(Column, GameManager.Instance.DamageInterval/10f);
+            Destroy(Column, 5f); //Cambiar 5f por el intervalo del game manager
             FirstSpawn = false;
         }
 
