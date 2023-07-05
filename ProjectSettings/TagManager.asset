@@ -7,6 +7,7 @@ TagManager:
   - Fire
   - Ice
   - Dirt
+  - Slime
   layers:
   - Default
   - TransparentFX

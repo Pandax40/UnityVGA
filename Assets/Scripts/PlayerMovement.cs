@@ -31,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private bool firstSlide;        //Evita el doble slide de pared
     private bool canMove;
     private bool canFastFall;
-    private bool isIceSliding;
+    public bool isIceSliding { get; private set; }
+    public bool isDirt { get; private set; }
 
     private float raycastGroundDistance;
     private float raycastHorizontalDistance;
@@ -73,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
         canMoveForward = true;
         actIndex = 0;
 
+        gameObject.SetActive(false);
+
         ReloadPlayer();
     }
     public void ReloadPlayer()
@@ -91,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
         rigidbody.velocity = new Vector2(fRoundVelociadX, fRoundVelociadY);
 
         direction = Mathf.Round(Mathf.Clamp(transform.eulerAngles.y - 90, -1f, 1f) * -1f); //Direccion del personaje [IZQ](-1f) o [DER](1f)
+
+
     }
 
     private void Raycasts(float distanceHorizontal)
@@ -146,9 +151,11 @@ public class PlayerMovement : MonoBehaviour
         Raycasts(0.55f);
         AnimationsSet();
 
-        //Ice Sliding
+        //Ice Sliding and Dirt
         isIceSliding = rayCollider != null && rayCollider.tag == "Ice";
+        isDirt = rayCollider != null && rayCollider.tag == "Dirt";
         if (!isIceSliding && !canSlide) rigidbody.drag = SlideDrag;
+
        
         //Timer
         if (timerWallGrap > 0f)
@@ -184,7 +191,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 rigidbody.drag = 0f;
-                rigidbody.velocity = new Vector2(speed * (playerProp.plusVelocity ? 1.5f : 1f), rigidbody.velocity.y);
+                rigidbody.velocity = new Vector2(speed * (playerProp.plusVelocity ? 1.5f : 1f) * (isDirt ? 0.3f : 1f), rigidbody.velocity.y);
             }
         }
             

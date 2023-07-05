@@ -8,6 +8,6 @@ public class ControlScreen : MonoBehaviour
     public void Button()
     {
         gameObject.SetActive(false);
-        GameManager.Instance.LoadFirstScene();
+        GameManager.Instance.LoadScene(0);
     }
 }

@@ -11,12 +11,15 @@ public class Platform : MonoBehaviour
     private new Collider2D collider;
     private GameObject coinSpawned;
     private float timer;            //Delay entre randoms
+    private PhysicsMaterial2D materialSlime;
 
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<Collider2D>();
         timer = Random.Range(0f, 4f);
+        materialSlime = new PhysicsMaterial2D();
+        materialSlime.bounciness = 0.8f;
     }
 
     // Update is called once per frame
@@ -36,6 +39,15 @@ public class Platform : MonoBehaviour
                 Destroy(coinSpawned, DestroyCoinTimer);
             }
             timer = Random.Range(0f, 4f);
+        }
+
+        if(gameObject.tag == "Slime")
+        {
+            if (Mathf.Abs(GameManager.Instance.Player.GetComponent<Rigidbody2D>().velocity.y) < 10f)
+                collider.sharedMaterial = new PhysicsMaterial2D();
+            else
+                collider.sharedMaterial = materialSlime;
+
         }
     }
 }

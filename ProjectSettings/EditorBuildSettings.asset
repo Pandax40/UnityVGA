@@ -29,13 +29,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Castle Shop.unity
     guid: bbe4ccd25ece238419638ea4a92f0eab
-  - enabled: 1
-    path: Assets/Scenes/Pause.unity
-    guid: b1d322432b59e984db6dbe6cd17df3c3
-  - enabled: 0
-    path: Assets/Scenes/Map.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 3d9b8b892b885db4e9681ff139ec9bdb
   m_configObjects: {}

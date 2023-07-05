@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6230630977960164327}
   m_Layer: 3
   m_Name: Plataforma Rocas
-  m_TagString: Dirt
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

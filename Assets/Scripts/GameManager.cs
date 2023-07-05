@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     private int actualIndex;
 
     private AsyncOperation loadProgress;
+
+    private bool firstLevel;
     public GameObject Player { get => PlayerScene; }
     public UI Interfaz { get => UIEstatica; }
     public int Probability { get => CoinSpawnProbability[actualIndex]; }
@@ -48,8 +50,6 @@ public class GameManager : MonoBehaviour
     public PlayerProp GetPropertys { get => PlayerRound[actualIndex]; }
     public int Monedas { get; private set; }
     public bool OnShop { get; set; }
-    //TODO:
-    // IMPORANTE: Que a partir de estos valores el mapa y el jugador no dependa de nada mas.
 
     void Awake()
     {
@@ -59,28 +59,17 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
-        actualIndex = 0;
         Monedas = actualIndex = 0;
         loadProgress = null;
+        firstLevel = true;
         DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start()
-    {
-        LoadMainMenu();
-    }
-
-    private void LoadMainMenu()
-    {
-        Interfaz.gameObject.SetActive(false);
-        Player.SetActive(false);
     }
 
     public void LoadFirstLevel()
     {
         PlayerRound = new PlayerProp[mapIndexs.Length];
         for (int i = 0; i < PlayerRound.Length; ++i)
-            PlayerRound[i] = new PlayerProp(2);
+            PlayerRound[i] = new PlayerProp(3);
         ControlScreen.SetActive(true);
     }
     void Update()
@@ -88,28 +77,28 @@ public class GameManager : MonoBehaviour
         if(loadProgress != null && loadProgress.isDone)
         {
             Loading.SetActive(false);
-            Interfaz.gameObject.SetActive(true);
             Player.SetActive(true);
-            //Player.transform.position =
-            loadProgress = null; 
+            Interfaz.gameObject.SetActive(true);
+            loadProgress = null;
+            firstLevel = false;
         }
         else if(loadProgress != null)
         {
             Loading.SetActive(true);
-            Interfaz.gameObject.SetActive(false);
+            //Interfaz.gameObject.SetActive(false);
             Player.SetActive(false);
         }
             
     }
 
-    public void LoadFirstScene()
+    public void LoadScene(int mapIndex)
     {
-        loadProgress = SceneManager.LoadSceneAsync(mapIndexs[0]);
+        loadProgress = SceneManager.LoadSceneAsync(mapIndexs[mapIndex]);
     }
 
     private void FixedUpdate()
     {
-        if (timers[actualIndex] > 0f && !OnShop && loadProgress == null)
+        if (timers[actualIndex] > 0f && !OnShop && loadProgress == null && !firstLevel)
         {
             timers[actualIndex] -= Time.fixedDeltaTime;
             if (timers[actualIndex] <= 0f)
