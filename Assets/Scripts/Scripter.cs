@@ -14,7 +14,7 @@ public class Scripter : MonoBehaviour
     void Start()
     {
         timer = Random.Range(5, 20);
-        OgCamerapos = Vector3.zero;
+        OgCamerapos = CameraShake.transform.position;
     }
 
     // Update is called once per frame

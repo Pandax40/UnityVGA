@@ -11,9 +11,12 @@ public class SpawnFire : MonoBehaviour
     [SerializeField] private float freq;
     public float timer { get; set; }
     public CameraShake CameraShake;
+    [SerializeField] private GameObject WarningColumn;
 
     private float auxFreq;
+    private bool FirstSpawn;
     private Vector2 centerPosition;
+    private GameObject Column;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,7 @@ public class SpawnFire : MonoBehaviour
         auxFreq = freq;
         timer = 0;
         centerPosition = new Vector2(Random.Range(-12, 12), 20);
+        FirstSpawn = true;
     }
 
     // Update is called once per frame
@@ -29,14 +33,24 @@ public class SpawnFire : MonoBehaviour
         if(timer > 0f)
         {
             timer -= Time.deltaTime;
-            if(timer <= 0) centerPosition = new Vector2(Random.Range(-12, 12), 20);
+            if (timer <= 0)
+            {
+                centerPosition = new Vector2(Random.Range(-12, 12), 20);
+                FirstSpawn = true;
+            }
         }
-            
+        if (FirstSpawn && timer > 0)
+        {
+            Column = Instantiate(WarningColumn, new Vector3(centerPosition.x, 0, 0f), Quaternion.identity);
+            Destroy(Column, GameManager.Instance.DamageInterval/10f);
+            FirstSpawn = false;
+        }
+
     }
 
     private void FixedUpdate()
     {   
-        if (timer > 0f && auxFreq > 0f)
+        if (timer > 0f && Column == null)
         {
             auxFreq -= Time.fixedDeltaTime;
             if (auxFreq <= 0f)
