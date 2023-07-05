@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float[] timers;
     [SerializeField] private GameObject PlayerScene;
     [SerializeField] private UI UIEstatica;
+    [SerializeField] private GameObject Loading;
+    [SerializeField] private GameObject ControlScreen;
 
     private int actualIndex;
 
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
     public PlayerProp GetPropertys { get => PlayerRound[actualIndex]; }
     public int Monedas { get; private set; }
     public bool OnShop { get; set; }
+    public bool needControlScreen { get; set; }
     //TODO:
     // IMPORANTE: Que a partir de estos valores el mapa y el jugador no dependa de nada mas.
 
@@ -58,14 +61,31 @@ public class GameManager : MonoBehaviour
         Instance = this;
         actualIndex = 0;
         Monedas = actualIndex = 0;
+        needControlScreen = true;
         DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
+        LoadMainMenu();
+    }
+
+    private void LoadMainMenu()
+    {
+        Interfaz.gameObject.SetActive(false);
+    }
+
+    public void LoadFirstLevel()
+    {
         PlayerRound = new PlayerProp[mapIndexs.Length];
-        for(int i = 0; i < PlayerRound.Length; ++i)
+        for (int i = 0; i < PlayerRound.Length; ++i)
             PlayerRound[i] = new PlayerProp(2);
+        Loading.SetActive(true);
+        if(needControlScreen)
+        {
+            ControlScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
     void Update()
     {
@@ -74,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (timers[actualIndex] > 0f && !OnShop)
+        if (timers[actualIndex] > 0f && !OnShop && !needControlScreen)
         {
             timers[actualIndex] -= Time.fixedDeltaTime;
             if (timers[actualIndex] <= 0f)
@@ -99,7 +119,12 @@ public class GameManager : MonoBehaviour
             --PlayerRound[i].hearts;
         }
         Interfaz.UpdateHearts();
-        return GetPropertys.hearts == 0;
+        if (GetPropertys.hearts == 0)
+        {
+            Loading.SetActive(true);
+            return true;
+        }
+        return false;
     }
 
     public void AddHeart()

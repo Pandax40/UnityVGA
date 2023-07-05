@@ -44,3 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a76f9b2bbd64154597d3f156d2c5ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoinSpawnProbability: 3200000064000000
+  DamageSysInterval: 
+  DamageSysTimer: 
+  mapIndexs: 010000000100000001000000030000000300000003000000050000000500000005000000
+  timers:
+  - 120
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 39.96
+  PlayerScene: {fileID: 0}
+  UIEstatica: {fileID: 0}
+  Loading: {fileID: 0}
+  ControlScreen: {fileID: 0}

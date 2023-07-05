@@ -749,6 +749,8 @@ MonoBehaviour:
   Prefabs:
   - {fileID: 522240195022813721, guid: 258830878b879ca41b6032e057d1c500, type: 3}
   - {fileID: 5335595508452043855, guid: 8880f4cc672833941bed37d706fa5e35, type: 3}
+  - {fileID: 5158451251294076288, guid: bcffd67319152fd4bba18539e082030b, type: 3}
+  - {fileID: 8121925190146804952, guid: f978fb006ab715f419a891a48dc472d5, type: 3}
 --- !u!1 &8460910748254307499
 GameObject:
   m_ObjectHideFlags: 0

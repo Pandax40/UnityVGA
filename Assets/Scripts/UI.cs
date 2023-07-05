@@ -24,8 +24,6 @@ public class UI : MonoBehaviour
         for(int i = 0; i < 4; ++i)
             hearts[i] = transform.GetChild(0).GetChild(i).gameObject;
         UpdateHearts();
-        ShakeHearts(10);
-        ShakeCoins(1);
         DontDestroyOnLoad(gameObject);
     }
 
