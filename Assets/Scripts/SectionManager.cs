@@ -11,7 +11,6 @@ public class SectionManager : MonoBehaviour
     private Transform[][] platformsColiders;
     private int matrixRow = 2;
     private int matrixColumn = 4;
-
     //TODO:
     // - Distancia maxima entre los caminos de la pared. Minimo tener un camino posible.
 
@@ -22,6 +21,8 @@ public class SectionManager : MonoBehaviour
         Queue<GameObject> prefabs = GenerateQueue();
         GenerateTransforms(prefabs);
         FixPlatform(true);
+        Platform.Probability = GameManager.Instance.Probability;
+        Debug.Log("Actual Coin Probability Spawn: " + GameManager.Instance.Probability);
     }
 
     private Queue<GameObject> GenerateQueue() 

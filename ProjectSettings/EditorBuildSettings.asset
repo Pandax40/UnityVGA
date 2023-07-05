@@ -9,21 +9,30 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: ed0b88f801c285343af83ccf99c20e02
   - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: 529dc8b42b5942848aa95d817a6872ab
-  - enabled: 1
-    path: Assets/Scenes/Map.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: 2327a4b7c85e9644e8730b1635808901
+  - enabled: 1
+    path: Assets/Scenes/Forest Shop.unity
+    guid: d0c6a7a86d5ebb042a9d0129305dfe28
   - enabled: 1
     path: Assets/Scenes/CaveForest.unity
     guid: c4a5c87df1826004bbf53074320d31a8
   - enabled: 1
+    path: Assets/Scenes/CaveForest Shop.unity
+    guid: c9de2381fe1899e47bda22dee4b0ada7
+  - enabled: 1
     path: Assets/Scenes/Castle.unity
     guid: 6d0c05f944901d7498c84d223b2b0a0c
   - enabled: 1
+    path: Assets/Scenes/Castle Shop.unity
+    guid: bbe4ccd25ece238419638ea4a92f0eab
+  - enabled: 1
     path: Assets/Scenes/Pause.unity
     guid: b1d322432b59e984db6dbe6cd17df3c3
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 529dc8b42b5942848aa95d817a6872ab
+  - enabled: 0
+    path: Assets/Scenes/Map.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
