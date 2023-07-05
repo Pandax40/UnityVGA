@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     private int actualIndex;
 
+    private AsyncOperation loadProgress;
     public GameObject Player { get => PlayerScene; }
     public UI Interfaz { get => UIEstatica; }
     public int Probability { get => CoinSpawnProbability[actualIndex]; }
@@ -47,7 +48,6 @@ public class GameManager : MonoBehaviour
     public PlayerProp GetPropertys { get => PlayerRound[actualIndex]; }
     public int Monedas { get; private set; }
     public bool OnShop { get; set; }
-    public bool needControlScreen { get; set; }
     //TODO:
     // IMPORANTE: Que a partir de estos valores el mapa y el jugador no dependa de nada mas.
 
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
         actualIndex = 0;
         Monedas = actualIndex = 0;
-        needControlScreen = true;
+        loadProgress = null;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
     private void LoadMainMenu()
     {
         Interfaz.gameObject.SetActive(false);
+        Player.SetActive(false);
     }
 
     public void LoadFirstLevel()
@@ -80,21 +81,35 @@ public class GameManager : MonoBehaviour
         PlayerRound = new PlayerProp[mapIndexs.Length];
         for (int i = 0; i < PlayerRound.Length; ++i)
             PlayerRound[i] = new PlayerProp(2);
-        Loading.SetActive(true);
-        if(needControlScreen)
-        {
-            ControlScreen.SetActive(true);
-            Time.timeScale = 0f;
-        }
+        ControlScreen.SetActive(true);
     }
     void Update()
     {
-        
+        if(loadProgress != null && loadProgress.isDone)
+        {
+            Loading.SetActive(false);
+            Interfaz.gameObject.SetActive(true);
+            Player.SetActive(true);
+            //Player.transform.position =
+            loadProgress = null; 
+        }
+        else if(loadProgress != null)
+        {
+            Loading.SetActive(true);
+            Interfaz.gameObject.SetActive(false);
+            Player.SetActive(false);
+        }
+            
+    }
+
+    public void LoadFirstScene()
+    {
+        loadProgress = SceneManager.LoadSceneAsync(mapIndexs[0]);
     }
 
     private void FixedUpdate()
     {
-        if (timers[actualIndex] > 0f && !OnShop && !needControlScreen)
+        if (timers[actualIndex] > 0f && !OnShop && loadProgress == null)
         {
             timers[actualIndex] -= Time.fixedDeltaTime;
             if (timers[actualIndex] <= 0f)

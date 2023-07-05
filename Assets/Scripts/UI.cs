@@ -14,6 +14,12 @@ public class UI : MonoBehaviour
     private float shakeCoins;
     private Vector3 auxCoinPos;
     private Vector3 auxHeartPos;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +30,9 @@ public class UI : MonoBehaviour
         for(int i = 0; i < 4; ++i)
             hearts[i] = transform.GetChild(0).GetChild(i).gameObject;
         UpdateHearts();
+        gameObject.SetActive(true);
         DontDestroyOnLoad(gameObject);
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame

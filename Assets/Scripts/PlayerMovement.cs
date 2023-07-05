@@ -55,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
     // - Arreglar hitbox y centro de run
     // - Animacion fall
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -69,8 +74,6 @@ public class PlayerMovement : MonoBehaviour
         actIndex = 0;
 
         ReloadPlayer();
-
-        DontDestroyOnLoad(gameObject);
     }
     public void ReloadPlayer()
     {

@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3214241380637755310
 MonoBehaviour:
@@ -47,7 +47,7 @@ MonoBehaviour:
   CoinSpawnProbability: 3200000064000000
   DamageSysInterval: 
   DamageSysTimer: 
-  mapIndexs: 010000000100000001000000030000000300000003000000050000000500000005000000
+  mapIndexs: 020000000200000002000000040000000400000004000000060000000600000006000000
   timers:
   - 120
   - 10
