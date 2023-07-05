@@ -14,16 +14,11 @@ public class UI : MonoBehaviour
         hearths = new GameObject[4];
         for(int i = 0; i < 4; ++i)
             hearths[i] = transform.GetChild(i).gameObject;
-        UpdateScreen();
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
     void Update()
-    {
-
-    }
-
-    public void UpdateScreen()
     {
         coinText.text = GameManager.Instance.Monedas.ToString();
     }
