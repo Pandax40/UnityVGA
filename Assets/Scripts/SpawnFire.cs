@@ -10,7 +10,7 @@ public class SpawnFire : MonoBehaviour
     [SerializeField] private float initialVelocity;
     [SerializeField] private float freq;
     public float timer { get; set; }
-
+    public CameraShake CameraShake;
 
     private float auxFreq;
     private Vector2 centerPosition;
@@ -35,7 +35,7 @@ public class SpawnFire : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
+    {   
         if (timer > 0f && auxFreq > 0f)
         {
             auxFreq -= Time.fixedDeltaTime;
@@ -50,6 +50,7 @@ public class SpawnFire : MonoBehaviour
 
     public void FireSpawn(Vector3 pos)
     {
+        CameraShake.ShakeCamera();
         GameObject Bola = Instantiate(FireBall, pos, Quaternion.identity);
         Bola.transform.eulerAngles = new Vector3(0, 0, -90);
         Bola.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -initialVelocity);

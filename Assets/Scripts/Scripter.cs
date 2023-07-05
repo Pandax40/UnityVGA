@@ -5,6 +5,8 @@ using UnityEngine;
 public class Scripter : MonoBehaviour
 {
     [SerializeField] private GameObject FireSpawner;
+    public CameraShake CameraShake;
+    private Vector3 OgCamerapos;
 
     private float timer;
 
@@ -12,6 +14,7 @@ public class Scripter : MonoBehaviour
     void Start()
     {
         timer = Random.Range(5, 20);
+        OgCamerapos = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class Scripter : MonoBehaviour
             {
                 FireSpawner.GetComponent<SpawnFire>().timer = Random.Range(5, 10);
                 timer = Random.Range(5, 20);
+                CameraShake.transform.position = OgCamerapos;
             }
         }
     }

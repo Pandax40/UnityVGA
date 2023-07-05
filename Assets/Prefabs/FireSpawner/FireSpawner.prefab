@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireBall: {fileID: 1322096607100335708, guid: 4816267c77efabe47b5c691c009fc5af, type: 3}
-  RangeX: 3
+  RangeX: 3.5
   initialVelocity: 40
-  freq: 0.01
+  freq: 0.009
+  CameraShake: {fileID: 0}

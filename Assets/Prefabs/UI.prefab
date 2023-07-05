@@ -31,13 +31,13 @@ RectTransform:
   m_Children:
   - {fileID: 491094721324124400}
   - {fileID: 6665195526211162912}
-  m_Father: {fileID: 1505180019557406593}
+  m_Father: {fileID: 3459102901394323800}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -414.09995, y: 271.2}
-  m_SizeDelta: {x: 497, y: -500}
+  m_AnchoredPosition: {x: -414.09998, y: 271.2}
+  m_SizeDelta: {x: 1357, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &9102346931510401351
 Animator:
@@ -423,6 +423,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2280916791594685350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3459102901394323800}
+  m_Layer: 5
+  m_Name: Hearts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3459102901394323800
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2280916791594685350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6698047943350596974}
+  - {fileID: 2246693188889817041}
+  - {fileID: 9026092242628099168}
+  - {fileID: 861702967728801314}
+  m_Father: {fileID: 1505180019557406593}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2289856425218554690
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,13 +494,13 @@ RectTransform:
   m_Children:
   - {fileID: 4666651591198489525}
   - {fileID: 6603363048599815401}
-  m_Father: {fileID: 1505180019557406593}
+  m_Father: {fileID: 3459102901394323800}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -377.7999, y: 271.2}
-  m_SizeDelta: {x: 497, y: -500}
+  m_AnchoredPosition: {x: -377.79993, y: 271.2}
+  m_SizeDelta: {x: 1357, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2378663308295048420
 Animator:
@@ -598,14 +638,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6698047943350596974}
-  - {fileID: 2246693188889817041}
-  - {fileID: 9026092242628099168}
-  - {fileID: 861702967728801314}
+  - {fileID: 3459102901394323800}
   - {fileID: 4875337636323907857}
   - {fileID: 3350071362739046243}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -841,13 +878,13 @@ RectTransform:
   m_Children:
   - {fileID: 8703477802111627643}
   - {fileID: 1284750338679575870}
-  m_Father: {fileID: 1505180019557406593}
+  m_Father: {fileID: 3459102901394323800}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -450.49985, y: 271.2}
-  m_SizeDelta: {x: -860, y: -500}
+  m_AnchoredPosition: {x: -450.49988, y: 271.2}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &5844835783243464005
 Animator:
@@ -1153,13 +1190,13 @@ RectTransform:
   m_Children:
   - {fileID: 9138867621533643199}
   - {fileID: 6357582314210542370}
-  m_Father: {fileID: 1505180019557406593}
+  m_Father: {fileID: 3459102901394323800}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -341.99985, y: 271.2}
-  m_SizeDelta: {x: 497, y: -500}
+  m_AnchoredPosition: {x: -341.99988, y: 271.2}
+  m_SizeDelta: {x: 1357, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1642863579677535885
 Animator:

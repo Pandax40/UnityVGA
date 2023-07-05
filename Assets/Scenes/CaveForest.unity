@@ -451,7 +451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608664178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.38, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3269,7 +3269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356542605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7019,8 +7019,8 @@ Tilemap:
   - first: {x: -12, y: 5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7102,11 +7102,11 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 44a02a7082975354e8cc1a8decd9fc77, type: 2}
-  - m_RefCount: 5
+  - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 1b520457644e4e940b6808f80436e1dc, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: f55e1d46499546043ba4a3a9cfcebcab, type: 2}
-  - m_RefCount: 59
+  - m_RefCount: 60
     m_Data: {fileID: 11400000, guid: 85bbf683a2c60d942b228835fbd38ab7, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: a7808f9864d25c240871ebee4e05a7ff, type: 2}
@@ -7145,11 +7145,11 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 4
     m_Data: {fileID: 686995512, guid: 986caa0418e73324fbed04e337fee7c5, type: 3}
-  - m_RefCount: 5
+  - m_RefCount: 4
     m_Data: {fileID: 1129350725, guid: 986caa0418e73324fbed04e337fee7c5, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 2058372351, guid: 986caa0418e73324fbed04e337fee7c5, type: 3}
-  - m_RefCount: 59
+  - m_RefCount: 60
     m_Data: {fileID: 391509906, guid: 986caa0418e73324fbed04e337fee7c5, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -142186118, guid: 986caa0418e73324fbed04e337fee7c5, type: 3}
