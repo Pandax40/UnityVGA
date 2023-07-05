@@ -1,0 +1,12 @@
+0 CoinHeart: Coins may spawn as hearts. (1 Round)
+1 Coinx2: Get x2 coins. (1 Round)
+2 DobleJump: +1 jump.
+3 DoubleWallJump: +1 wall jump.
+4 ExtraHeart: +1 permanent heart.
+5 ExtraHeartTemp: +1 NOT permanent heart.
+6 HealFullHeart: Heal 1 heart.
+7 HealHeart: Heal all your hearts.
+8 Jump: Jump higher.
+9 JumpTemp: Jump higher. (1 Round)
+10 Velocity: Extra velocity.
+11 VelocityTemp: Extra velocity. (1 Round)
