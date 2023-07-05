@@ -65,7 +65,7 @@ public class UI : MonoBehaviour
         hearts[3].SetActive(extraHeart);
         for (int i = 0; i < (3 + (extraHeart ? 1 : 0)); ++i)
         {
-            if (numHearts != 0)
+            if (numHearts > 0)
             {
                 hearts[i].transform.GetChild(0).gameObject.SetActive(true);
                 --numHearts;
