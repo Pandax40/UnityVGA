@@ -8,6 +8,9 @@ public class PauseMenuManager : MonoBehaviour
 {
     private bool activated;
     public GameObject pausemenu;
+    public AudioSource AudioSource;
+    public AudioClip PauseON;
+    public AudioClip PauseOFF;
 
     void Awake()
     {
@@ -35,12 +38,14 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (activated)
         {
+            AudioSource.PlayOneShot(PauseOFF, 3f);
             activated = false;
             pausemenu.SetActive(false);
             Time.timeScale = 1f;
         }
         else
         {
+            AudioSource.PlayOneShot(PauseON, 3f);
             activated = true;
             pausemenu.SetActive(true);
             Time.timeScale = 0f;

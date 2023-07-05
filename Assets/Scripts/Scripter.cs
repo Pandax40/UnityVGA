@@ -7,6 +7,7 @@ public class Scripter : MonoBehaviour
     [SerializeField] private GameObject FireSpawner;
     public CameraShake CameraShake;
     private Vector3 OgCamerapos;
+    public bool Spawning;
 
     private float timer;
 
@@ -15,6 +16,7 @@ public class Scripter : MonoBehaviour
     {
         timer = Random.Range(5, 20);
         OgCamerapos = CameraShake.transform.position;
+        Spawning = false;
     }
 
     // Update is called once per frame
@@ -25,11 +27,12 @@ public class Scripter : MonoBehaviour
             timer -= Time.deltaTime;
             if(timer <= 0f)
             {
+                Spawning = true;
                 FireSpawner.GetComponent<SpawnFire>().timer = Random.Range(5, 10);
                 timer = Random.Range(5, 20);
-                CameraShake.transform.position = OgCamerapos;
             }
         }
+        if (!Spawning) CameraShake.transform.position = OgCamerapos;
     }
 
     private void FixedUpdate()

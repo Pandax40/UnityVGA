@@ -9,14 +9,19 @@ public class SpawnFire : MonoBehaviour
     [SerializeField] private float RangeX;              //rangos de x entre los que spawnea bolas
     [SerializeField] private float initialVelocity;
     [SerializeField] private float freq;
+    [SerializeField] private float MaxSoundTimer;
     public float timer { get; set; }
     public CameraShake CameraShake;
+    public Scripter Scripter;
+    public AudioSource AudioSource;
+    public AudioClip AudioClip;
     [SerializeField] private GameObject WarningColumn;
 
     private float auxFreq;
     private bool FirstSpawn;
     private Vector2 centerPosition;
     private GameObject Column;
+    private float SoundTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +30,13 @@ public class SpawnFire : MonoBehaviour
         timer = 0;
         centerPosition = new Vector2(Random.Range(-12, 12), 20);
         FirstSpawn = true;
+        SoundTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        SoundTimer -= Time.deltaTime;
         if(timer > 0f)
         {
             timer -= Time.deltaTime;
@@ -45,7 +52,6 @@ public class SpawnFire : MonoBehaviour
             Destroy(Column, 5f); //Cambiar 5f por el intervalo del game manager
             FirstSpawn = false;
         }
-
     }
 
     private void FixedUpdate()
@@ -55,11 +61,17 @@ public class SpawnFire : MonoBehaviour
             auxFreq -= Time.fixedDeltaTime;
             if (auxFreq <= 0f)
             {
+                if (SoundTimer <= 0)
+                {
+                    AudioSource.PlayOneShot(AudioClip, 2f);
+                    SoundTimer = MaxSoundTimer;
+                }
                 float randomx = Random.Range(-RangeX, RangeX);
                 FireSpawn(new Vector3(randomx + centerPosition.x, centerPosition.y, 0f));
                 auxFreq = freq;
             }
         }
+        if (timer <= 0) Scripter.Spawning = false;
     }
 
     public void FireSpawn(Vector3 pos)
