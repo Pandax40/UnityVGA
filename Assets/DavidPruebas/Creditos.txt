@@ -14,4 +14,7 @@ Sprites:
 - PixelAntasy (Mobile Game Graphics)
 
 Music:
-Snd buyitem (Bigpeepeemoment)
+- Snd buyitem (Bigpeepeemoment)
+- Ow exclamation of pain (Mixkit)
+- 16-bit music (bit by bit sound)
+- coin (pixabay)
