@@ -9,10 +9,13 @@ public struct PlayerProp
     {
         runParticles = 0;
         plusJump = plusVelocity = dobleWallJump = dobleJump = false;
+           
+        extraHeart = true;
         this.hearts = hearts; 
     }
     public int runParticles; //Maps [0] Forest [1] Cave [2] Castle
     public int hearts { get; }
+    public bool extraHeart { get; }
     public bool plusVelocity;
     public bool plusJump;
     public bool dobleJump;
@@ -37,7 +40,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player { get => PlayerScene; }
     public UI Interfaz { get => UIEstatica; }
     public int Probability { get => CoinSpawnProbability[actualIndex]; }
-    public int DamageInterval{ get => DamageSysInterval[actualIndex]; }
+    public int DamageInterval { get => DamageSysInterval[actualIndex]; }
     public int DamageTimer { get => DamageSysTimer[actualIndex]; }
     public PlayerProp GetPropertys { get => PlayerRound[actualIndex]; }
     public int Monedas { get; private set; }
@@ -62,8 +65,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerRound = new PlayerProp[mapIndexs.Length];
         for(int i = 0; i < PlayerRound.Length; ++i)
-            PlayerRound[i] = new PlayerProp(3);
-
+            PlayerRound[i] = new PlayerProp(2);
     }
     void Update()
     {

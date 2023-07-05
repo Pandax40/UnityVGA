@@ -7,15 +7,16 @@ public class Platform : MonoBehaviour
     public static int Probability;
 
     [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private float DestroyCoinTimer;
     private new Collider2D collider;
     private GameObject coinSpawned;
-    private float timer;
+    private float timer;            //Delay entre randoms
 
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<Collider2D>();
-        timer = Random.Range(5, 6);
+        timer = Random.Range(0f, 4f);
     }
 
     // Update is called once per frame
@@ -32,9 +33,9 @@ public class Platform : MonoBehaviour
             if(random < Probability && coinSpawned == null)
             {
                 coinSpawned = Instantiate(coinPrefab, transform.position + new Vector3(0,1.7f,0), Quaternion.identity);
-                Destroy(coinSpawned, 8f);
+                Destroy(coinSpawned, DestroyCoinTimer);
             }
-            timer = Random.Range(5, 6);
+            timer = Random.Range(0f, 4f);
         }
     }
 }

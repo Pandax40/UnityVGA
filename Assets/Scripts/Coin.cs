@@ -13,6 +13,7 @@ public class Coin : MonoBehaviour
             isTaked = true;
             GameManager.Instance.AddCoin();
             Destroy(gameObject, 0.1f);
+            GameManager.Instance.Interfaz.UpdateCoins();
             Instantiate(PickupParticles, collision.transform);
         }
     }

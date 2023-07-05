@@ -19,5 +19,6 @@ public class Death : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collision.transform.position = sectionManager.GetSpawnPos();
+
     }
 }

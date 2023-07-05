@@ -6,36 +6,82 @@ using UnityEngine.UIElements;
 
 public class UI : MonoBehaviour
 {
-    public float ShakeSpeed; //velocidad a la que shakea
-    public float ShakeFrequency; //frequencia 
+    public float ShakeAmplitude;
+    public float ShakeFrequency;
     private TextMeshProUGUI coinText;
-    private GameObject[] hearths;
+    private GameObject[] hearts;
+    private float shakeTimer;
+    private float shakeCoins;
+    private Vector3 auxCoinPos;
+    private Vector3 auxHeartPos;
     // Start is called before the first frame update
     void Start()
     {
         coinText = GetComponentInChildren<TextMeshProUGUI>();
-        hearths = new GameObject[4];
+        auxCoinPos = transform.GetChild(1).GetComponent<RectTransform>().localPosition;
+        auxHeartPos = transform.GetChild(0).GetComponent<RectTransform>().localPosition;
+        hearts = new GameObject[4];
         for(int i = 0; i < 4; ++i)
-        hearths[i] = transform.GetChild(i).gameObject;
+            hearts[i] = transform.GetChild(0).GetChild(i).gameObject;
+        UpdateHearts();
+        ShakeHearts(10);
+        ShakeCoins(1);
         DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
+    {
+        if(shakeTimer > 0f)
+        {
+            Vector3 pos = new Vector3(0, Mathf.Sin(Time.time * ShakeFrequency) * ShakeAmplitude, 0); //shake en vertical
+            transform.GetChild(0).GetComponent<RectTransform>().localPosition = pos + auxHeartPos;
+            shakeTimer -= Time.deltaTime;
+            if (shakeTimer <= 0f)
+                transform.GetChild(0).GetComponent<RectTransform>().localPosition = auxHeartPos;
+                
+        }
+        if(shakeCoins > 0f)
+        {
+            Vector3 pos = new Vector3(0, Mathf.Sin(Time.time * ShakeFrequency) * ShakeAmplitude, 0);
+            transform.GetChild(1).GetComponent<RectTransform>().localPosition = pos + auxCoinPos; //shake en vertical
+            shakeCoins -= Time.deltaTime;
+            if (shakeCoins <= 0f)
+            {
+                transform.GetChild(1).GetComponent<RectTransform>().localPosition = auxCoinPos;
+            }
+                
+        }
+    }
+    public void UpdateCoins()
     {
         coinText.text = GameManager.Instance.Monedas.ToString();
     }
 
-    public void ShakeHearts() //funcion para agitar corazones, hace falta que se llame varias veces cuando el player reciba daño, antes de llamarla habria que almacenar la 
-                              //posición original para que solo vibre y al acabar no se modifique su posición
+    public void UpdateHearts()
     {
-        transform.GetChild(0).position += new Vector3(0, Mathf.Sin(Time.time * ShakeSpeed) * ShakeFrequency, 0); //shake en vertical
+        bool extraHeart = GameManager.Instance.GetPropertys.extraHeart;
+        int numHearts = GameManager.Instance.GetPropertys.hearts;
+        hearts[3].SetActive(extraHeart);
+        for (int i = 0; i < (3 + (extraHeart ? 1 : 0)); ++i)
+        {
+            if (numHearts != 0)
+            {
+                hearts[i].transform.GetChild(0).gameObject.SetActive(true);
+                --numHearts;
+            }
+            else
+                hearts[i].transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 
-    public void ShakeCoins() //same pero para monedas (se llama cuando compres)
-    {   
-        float shaketime = Time.time; //para que shakeen lo mismo, no vaya a ser que cambie el time entre la ejecución
-        transform.GetChild(1).position += new Vector3(0, Mathf.Sin(shaketime * ShakeSpeed) * ShakeFrequency, 0);//sprite moneda
-        transform.GetChild(2).position += new Vector3(0, Mathf.Sin(shaketime * ShakeSpeed) * ShakeFrequency, 0);//coincounter
+    public void ShakeHearts(float timer)
+    {
+        shakeTimer = timer;
+    }
+
+    public void ShakeCoins(float timer) //same pero para monedas (se llama cuando compres)
+    {
+        shakeCoins = timer;
     }
 }
