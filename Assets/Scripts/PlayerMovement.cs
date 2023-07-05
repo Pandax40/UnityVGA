@@ -68,11 +68,11 @@ public class PlayerMovement : MonoBehaviour
         canMoveForward = true;
         actIndex = 0;
 
-        RealodPowerUps();
+        ReloadPlayer();
 
         DontDestroyOnLoad(gameObject);
     }
-    public void RealodPowerUps()
+    public void ReloadPlayer()
     {
         playerProp = GameManager.Instance.GetPropertys;
         extraJumps = playerProp.dobleJump ? 1 : 0;

@@ -5,9 +5,11 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     [SerializeField] private SectionManager sectionManager;
+    private bool death;
     // Start is called before the first frame update
     void Start()
     {
+        death = false;
     }
 
     // Update is called once per frame
@@ -18,7 +20,8 @@ public class Death : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        collision.transform.position = sectionManager.GetSpawnPos();
-
+        if (!GameManager.Instance.RemoveHeart() && !death)
+            collision.transform.position = sectionManager.GetSpawnPos();
+        else death = true;
     }
 }
