@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: ed0b88f801c285343af83ccf99c20e02
   - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 529dc8b42b5942848aa95d817a6872ab
+  - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: 2327a4b7c85e9644e8730b1635808901
   - enabled: 1
@@ -29,10 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pause.unity
     guid: b1d322432b59e984db6dbe6cd17df3c3
-  - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: 529dc8b42b5942848aa95d817a6872ab
   - enabled: 0
     path: Assets/Scenes/Map.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 3d9b8b892b885db4e9681ff139ec9bdb
   m_configObjects: {}

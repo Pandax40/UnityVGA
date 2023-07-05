@@ -14,12 +14,12 @@ public struct PlayerProp
         this.hearts = hearts; 
     }
     public int runParticles; //Maps [0] Forest [1] Cave [2] Castle
-    public int hearts { get; }
-    public bool extraHeart { get; }
-    public bool plusVelocity;
-    public bool plusJump;
-    public bool dobleJump;
-    public bool dobleWallJump;
+    public int hearts { get; set; }
+    public bool extraHeart { get; set; }
+    public bool plusVelocity { get; set; }
+    public bool plusJump { get; set; }
+    public bool dobleJump { get; set; }
+    public bool dobleWallJump { get; set; }
 }
 
 public class GameManager : MonoBehaviour
@@ -82,11 +82,27 @@ public class GameManager : MonoBehaviour
                 OnShop = true;
                 SceneManager.LoadSceneAsync(mapIndexs[actualIndex]+1);
                 actualIndex++;
-                Player.GetComponent<PlayerMovement>().RealodPowerUps();
+                Player.GetComponent<PlayerMovement>().ReloadPlayer();
             }
         }
     }
     public void AddCoin()
+    {
+        Monedas++;
+    }
+
+    //Indica si se a ha muerto el personaje.
+    public bool RemoveHeart()
+    {
+        for(int i = actualIndex; i < mapIndexs.Length; ++i)
+        {
+            --PlayerRound[i].hearts;
+        }
+        Interfaz.UpdateHearts();
+        return GetPropertys.hearts == 0;
+    }
+
+    public void AddHeart()
     {
         Monedas++;
     }
