@@ -9,6 +9,8 @@ Fonts:
 -Pixel Operator (Jayvee Enaguas)
 
 Sprites:
--Warrior (Clembod)
--Scene Assets (Nauris Amatnieks)
--PixelAntasy (Mobile Game Graphics)
+- Warrior (Clembod)
+- Scene Assets (Nauris Amatnieks)
+- PixelAntasy (Mobile Game Graphics)
+
+Music:
