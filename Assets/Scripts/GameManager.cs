@@ -99,6 +99,11 @@ public class GameManager : MonoBehaviour
         loadProgress = SceneManager.LoadSceneAsync(mapIndexs[0]);
     }
 
+    public void LoadCredits()
+    {
+        loadProgress = SceneManager.LoadSceneAsync(1);
+    }
+
     public void LoadMainMenu()
     {
         ReloadAll();
