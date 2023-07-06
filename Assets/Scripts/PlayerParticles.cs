@@ -7,6 +7,7 @@ public class PlayerParticles : MonoBehaviour
     public PlayerMovement playerMovement;
     public GameObject FallParticles;
     private bool FallDetection;
+    public GameObject FallPlayer;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -22,14 +23,15 @@ public class PlayerParticles : MonoBehaviour
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
         else
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        if (!FallDetection)
-            FallDetection = !playerMovement.canJump;
+        if (!playerMovement.canJump) FallDetection = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 3 && FallDetection) //ground
+        if (collision.gameObject.layer == 3 && FallDetection && playerMovement.canJump) //ground
         {
+            GameObject SonidoCaida = Instantiate(FallPlayer);
+            Destroy(SonidoCaida, 1f);
             GameObject ParticulaCaida = Instantiate(FallParticles, transform.GetChild(1));
             Destroy(ParticulaCaida, 2f);
             FallDetection = false;

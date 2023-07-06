@@ -444,6 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 584717103700282051}
   FallParticles: {fileID: 1433157478021220637, guid: f5cd9326b4dcb08418bd65263a4c5f48, type: 3}
+  FallPlayer: {fileID: 2924010012684168218, guid: 6cd8cefca45b8464d81a73996894ecfd, type: 3}
 --- !u!82 &3907820059344693272
 AudioSource:
   m_ObjectHideFlags: 0
