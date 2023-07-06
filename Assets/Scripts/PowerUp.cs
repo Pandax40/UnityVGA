@@ -2,30 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpInfo : MonoBehaviour
+public class PowerUp : MonoBehaviour
 {
     [SerializeField] private int id;
-    [SerializeField] private bool comprable;
+    public bool comprable;
     private PoUpInfoManager manager;
 
-    private void Awake()
-    {
-        
-    }
-
     private void Start()
+    {   
+        manager = transform.parent.GetChild(1).GetComponent<PoUpInfoManager>();
+    }
+    private void Update()
     {
-        //manager = transform.parent.GetChild(1).GetComponent<PoUpInfoManager>();
-
         if (!comprable)
         {
             transform.GetChild(2).GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;
             transform.GetChild(2).GetChild(1).GetComponent<SpriteRenderer>().color = Color.red;
             transform.GetChild(2).GetChild(2).GetComponent<SpriteRenderer>().color = Color.red;
         }
+        else
+        {
+            transform.GetChild(2).GetChild(0).GetComponent<SpriteRenderer>().color = Color.white;
+            transform.GetChild(2).GetChild(1).GetComponent<SpriteRenderer>().color = Color.white;
+            transform.GetChild(2).GetChild(2).GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 
-   /* private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         //llamar a funcion activate (num)
         manager.Activate(id);
@@ -35,5 +38,5 @@ public class PowerUpInfo : MonoBehaviour
     {
         //llamar a funcion stop
         manager.Deactivate();
-    }*/
+    }
 }

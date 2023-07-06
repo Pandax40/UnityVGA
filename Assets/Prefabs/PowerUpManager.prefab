@@ -62,7 +62,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1994039073
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &4272859170534809550
@@ -647,10 +647,10 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1994039073
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &4062175412384989001
@@ -765,7 +765,7 @@ MonoBehaviour:
   - {fileID: 3275151633226312205, guid: bbbff5bf428d2994db9835decbc28a90, type: 3}
   - {fileID: 6274382627443816958, guid: b1e773fe6881e6749bf9b8eaa21be1a8, type: 3}
   - {fileID: 4191794429945285964, guid: c1088ad7209e16e46bf71b7b3eaa0834, type: 3}
-  forest: 0
+  forest: 1
 --- !u!1 &8157851337384375798
 GameObject:
   m_ObjectHideFlags: 0

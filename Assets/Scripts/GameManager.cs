@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
                 Interfaz.gameObject.SetActive(true);
                 Player.transform.position = SpawnPos;
                 Player.SetActive(true);
+                if(OnShop) Player.transform.position = new Vector3(-6,-2.6f,0);
             }
             else
             {
@@ -134,9 +135,9 @@ public class GameManager : MonoBehaviour
             if (timers[actualIndex] <= 0f)
             {
                 OnShop = true;
-                SceneManager.LoadSceneAsync(mapIndexs[actualIndex]+1);
                 actualIndex++;
                 Player.GetComponent<PlayerMovement>().ReloadPlayer();
+                loadProgress = SceneManager.LoadSceneAsync(mapIndexs[actualIndex-1]+1);
             }
         }
     }
