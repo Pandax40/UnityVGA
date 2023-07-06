@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
         canSlide = true;
         canMoveForward = true;
         actIndex = 0;
+        canFastFall = true;
 
         gameObject.SetActive(false);
 
