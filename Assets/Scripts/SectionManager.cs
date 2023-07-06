@@ -7,6 +7,8 @@ public class SectionManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] Prefabs;
 
+    public static AudioSource AudioSource;
+
     private Transform[][] sectionTransforms;
     private Transform[][] platformsColiders;
     private int matrixRow = 2;

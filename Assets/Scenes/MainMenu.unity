@@ -256,10 +256,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 584717103700282051, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1352420827248955513, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -304,21 +300,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3698389658045610387, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7502305412776154647, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7502305412776154647, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -847,35 +831,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[0]
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[1]
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[2]
-      value: 5
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[3]
-      value: 5
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[4]
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[5]
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[6]
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[7]
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[8]

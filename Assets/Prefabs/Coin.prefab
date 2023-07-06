@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf4619f734755142b5d567018c77230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoinPlayer: {fileID: 884346851352029532, guid: 80764b765a319864ca5dd7c52461ad2b, type: 3}
   PickupParticles: {fileID: 9058261125733827332, guid: d1db453d07a5fd6468fffa461eddcc39, type: 3}
 --- !u!61 &5475406026939190555
 BoxCollider2D:
