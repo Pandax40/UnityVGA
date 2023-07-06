@@ -54,8 +54,7 @@ public class GameManager : MonoBehaviour
     public int DamageTimer { get => DamageSysTimer[actualIndex]; }
     public PlayerProp GetPropertys { get => PlayerRound[actualIndex]; }
     public int Monedas { get; private set; }
-    public bool OnShop { get; set; }
-
+    public bool OnShop { get; private set; }
     public bool BuyPerformed { get; private set; }
 
     void Awake()
@@ -212,8 +211,29 @@ public class GameManager : MonoBehaviour
                 PlayerRound[actualIndex].plusVelocity = true;
                 break;
             case 7:
-                price = 15;
-                PlayerRound[actualIndex].extraHeart = true;
+                price = 50;
+                for (int i = actualIndex; i < PlayerRound.Length; ++i)
+                    PlayerRound[i].dobleJump = true;
+                break;
+            case 8:
+                price = 50;
+                for (int i = actualIndex; i < PlayerRound.Length; ++i)
+                    PlayerRound[i].dobleWallJump = true;
+                break;
+            case 9:
+                price = 50;
+                for (int i = actualIndex; i < PlayerRound.Length; ++i)
+                    PlayerRound[i].extraHeart = true;
+                break;
+            case 10:
+                price = 50;
+                for (int i = actualIndex; i < PlayerRound.Length; ++i)
+                    PlayerRound[i].plusJump = true;
+                break;
+            case 11:
+                price = 50;
+                for (int i = actualIndex; i < PlayerRound.Length; ++i)
+                    PlayerRound[i].plusVelocity = true;
                 break;
             default:
                 break;
@@ -221,6 +241,7 @@ public class GameManager : MonoBehaviour
         Monedas -= price;
         Interfaz.UpdateCoins();
         Interfaz.UpdateHearts();
+        Player.GetComponent<PlayerMovement>().ReloadPlayer();
     }
 
     private void AddHearts(int heartsNum)
@@ -235,5 +256,11 @@ public class GameManager : MonoBehaviour
                     ++PlayerRound[i].hearts;
             }
         }
+    }
+
+    public void ShopStop()
+    {
+        OnShop = false;
+        loadProgress = loadProgress = SceneManager.LoadSceneAsync(mapIndexs[actualIndex]);
     }
 }

@@ -15,11 +15,11 @@ public class PoUpInfoManager : MonoBehaviour
         "Heal all your hearts.",
         "Jump higher. (1 Round)",
         "Extra velocity. (1 Round)",
-        "+1 jump.",
-        "+1 wall jump.",
+        "Doble jump permanent.",
+        "Doble wall jump permanent.",
         "+1 permanent heart.",    
-        "Jump higher.",
-        "Extra velocity."
+        "Jump higher permanent.",
+        "Extra velocity permanent."
     };
 
     void Start()

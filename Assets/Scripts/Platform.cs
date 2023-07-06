@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Platform : MonoBehaviour
@@ -36,7 +37,8 @@ public class Platform : MonoBehaviour
             int random = Random.Range(0, 100);
             if(random < Probability && Spawned == null)
             {
-                if(GameManager.Instance.GetPropertys.CoinsToHearts)
+                int randomHeart = Random.Range(0, 100);
+                if (GameManager.Instance.GetPropertys.CoinsToHearts && randomHeart > 90)
                     Spawned = Instantiate(heartPrefab, transform.position + new Vector3(0,1.7f,0), Quaternion.identity);
                 else
                     Spawned = Instantiate(coinPrefab, transform.position + new Vector3(0, 1.7f, 0), Quaternion.identity);
