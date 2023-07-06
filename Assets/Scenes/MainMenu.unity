@@ -1084,27 +1084,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: DamageSysInterval.Array.data[0]
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
-      propertyPath: DamageSysInterval.Array.data[1]
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
-      propertyPath: DamageSysInterval.Array.data[2]
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
-      propertyPath: DamageSysInterval.Array.data[3]
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
-      propertyPath: DamageSysInterval.Array.data[4]
+      propertyPath: DamageSysInterval.Array.data[1]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
+      propertyPath: DamageSysInterval.Array.data[2]
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
-      propertyPath: DamageSysInterval.Array.data[5]
+      propertyPath: DamageSysInterval.Array.data[3]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
+      propertyPath: DamageSysInterval.Array.data[4]
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
+      propertyPath: DamageSysInterval.Array.data[5]
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[0]
