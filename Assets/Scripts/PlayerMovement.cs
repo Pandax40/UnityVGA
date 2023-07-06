@@ -23,11 +23,11 @@ public class PlayerMovement : MonoBehaviour
     private Collider2D rayCollider;
 
     public bool canJump { get; private set; }    //Si puede saltar.
-    private bool wasJumping; //Si estaba saltado. [Coliders]
+    public bool wasJumping { get; private set; } //Si estaba saltado. [Coliders]
     private bool wantJump;
     public bool canSlide { get; private set; }
     private bool canMoveForward;    //Detecta si hay pared
-    private bool firstWallJump;     //Evita el salto repetido en la pared
+    public bool firstWallJump { get; private set; }     //Evita el salto repetido en la pared
     private bool firstSlide;        //Evita el doble slide de pared
     private bool canMove;
     private bool canFastFall;

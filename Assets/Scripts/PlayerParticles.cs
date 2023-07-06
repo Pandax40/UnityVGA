@@ -9,7 +9,11 @@ public class PlayerParticles : MonoBehaviour
     private bool FallDetection;
     public GameObject FallPlayer;
     public GameObject Dashplayer;
-    public bool slided;
+    public GameObject AirDashPlayer;
+    public GameObject WalljumpPlayer;
+    private bool slided;
+    private bool dashed;
+    private bool walljumped;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -18,6 +22,8 @@ public class PlayerParticles : MonoBehaviour
     {
         FallDetection = false;
         slided = false;
+        dashed = false;
+        walljumped = false;
     }
 
     void FixedUpdate()
@@ -28,6 +34,18 @@ public class PlayerParticles : MonoBehaviour
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
         if (!playerMovement.canJump) FallDetection = true;
         if (playerMovement.canSlide) slided = false;
+        if (!dashed && playerMovement.wasJumping && !playerMovement.canSlide)
+        {
+            dashed = true;
+            GameObject SonidoAirDash = Instantiate(AirDashPlayer);
+            Destroy(SonidoAirDash, 1f);
+        }
+        if (!walljumped && !playerMovement.firstWallJump)
+        {
+            GameObject SonidoWJ = Instantiate(WalljumpPlayer);
+            Destroy (SonidoWJ, 1f);
+            walljumped = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -45,6 +63,11 @@ public class PlayerParticles : MonoBehaviour
             GameObject DashSound = Instantiate(Dashplayer);
             Destroy(DashSound, 1f);
             slided = true;
+        }
+        if (collision.gameObject.layer == 3)
+        {
+            dashed = false;
+            walljumped = false;
         }
     }
 }

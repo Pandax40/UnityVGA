@@ -42,7 +42,7 @@ Transform:
   - {fileID: 4731445168818070308}
   - {fileID: 3007023853297549622}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5670976167166226746
 SpriteRenderer:
@@ -462,7 +462,8 @@ MonoBehaviour:
   FallParticles: {fileID: 1433157478021220637, guid: f5cd9326b4dcb08418bd65263a4c5f48, type: 3}
   FallPlayer: {fileID: 2924010012684168218, guid: 6cd8cefca45b8464d81a73996894ecfd, type: 3}
   Dashplayer: {fileID: 9159478902762320677, guid: 39ee505fe2f5f99458660004db33788a, type: 3}
-  slided: 0
+  AirDashPlayer: {fileID: 8632443721200828288, guid: d37f533c845eb82439595083fee86938, type: 3}
+  WalljumpPlayer: {fileID: 4792013363761179048, guid: 5c886871f0fffec4ab03b5511bcc666e, type: 3}
 --- !u!82 &3907820059344693272
 AudioSource:
   m_ObjectHideFlags: 0

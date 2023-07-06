@@ -15,6 +15,8 @@ public class SpawnFire : MonoBehaviour
     public Scripter Scripter;
     public AudioSource AudioSource;
     public AudioClip AudioClip;
+    public GameObject ColumnPlayer;
+    private GameObject SoundColumn;
     [SerializeField] private GameObject WarningColumn;
 
     private float auxFreq;
@@ -49,6 +51,7 @@ public class SpawnFire : MonoBehaviour
         if (FirstSpawn && timer > 0)
         {
             Column = Instantiate(WarningColumn, new Vector3(centerPosition.x, 0, 0f), Quaternion.identity);
+            SoundColumn = Instantiate(ColumnPlayer);
             Destroy(Column, 5f); //Cambiar 5f por el intervalo del game manager
             FirstSpawn = false;
         }
@@ -66,6 +69,7 @@ public class SpawnFire : MonoBehaviour
                     AudioSource.PlayOneShot(AudioClip, 2f);
                     SoundTimer = MaxSoundTimer;
                 }
+                Destroy(SoundColumn);
                 float randomx = Random.Range(-RangeX, RangeX);
                 FireSpawn(new Vector3(randomx + centerPosition.x, centerPosition.y, 0f));
                 auxFreq = freq;
