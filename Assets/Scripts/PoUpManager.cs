@@ -20,6 +20,8 @@ public class PoUpManager : MonoBehaviour
         ids[0] = UnityEngine.Random.Range(0, 2);
         ids[1] = UnityEngine.Random.Range(3, 6);
         ids[2] = UnityEngine.Random.Range(7, 11);
+        while (GameManager.Instance.BuyBuffer[ids[2] - 7])
+            ids[2] = UnityEngine.Random.Range(7, 11);
         for (int i = 0; i < 2 + (!forest ? 1 : 0); ++i)
             cajas[i] = Instantiate(PU[ids[i]], transform.GetChild(0).GetChild(i).transform.position, quaternion.identity, this.transform);
     }

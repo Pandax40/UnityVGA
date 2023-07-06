@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoinSpawnProbability: 3200000064000000
-  DamageSysInterval: 
+  DamageSysInterval: 0a000000010000000000000000000000
   DamageSysTimer: 
   mapIndexs: 020000000200000002000000040000000400000004000000060000000600000006000000
   timers:
@@ -61,4 +61,5 @@ MonoBehaviour:
   PlayerScene: {fileID: 0}
   UIEstatica: {fileID: 0}
   Loading: {fileID: 0}
-  ControlScreen: {fileID: 0}
+  GameOverScreen: {fileID: 0}
+  PauseMenu: {fileID: 0}

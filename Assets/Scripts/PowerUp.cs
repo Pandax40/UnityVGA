@@ -12,6 +12,7 @@ public class PowerUp : MonoBehaviour
     private void Start()
     {   
         manager = transform.parent.GetChild(1).GetComponent<PoUpInfoManager>();
+        comprable = false;
     }
     private void Update()
     {

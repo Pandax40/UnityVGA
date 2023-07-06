@@ -37,4 +37,9 @@ public class PoUpInfoManager : MonoBehaviour
     {
         this.gameObject.SetActive(false);
     }
+
+    public void NextScene()
+    {
+        GameManager.Instance.ShopStop();
+    }
 }

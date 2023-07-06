@@ -394,6 +394,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 440518850638054253}
+    - target: {fileID: 2689646783385825571, guid: 925f1a6c6024a3743a1b9b8f85ec5513, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 978821429}
+    - target: {fileID: 2689646783385825571, guid: 925f1a6c6024a3743a1b9b8f85ec5513, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2689646783385825571, guid: 925f1a6c6024a3743a1b9b8f85ec5513, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PoUpInfoManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3123421887187261572, guid: 925f1a6c6024a3743a1b9b8f85ec5513, type: 3}
       propertyPath: forest
       value: 1
@@ -450,7 +462,8 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 440518850638054253}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7098457970745643204, guid: 925f1a6c6024a3743a1b9b8f85ec5513, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4142,6 +4155,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &978821429 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5784262089925482885, guid: 925f1a6c6024a3743a1b9b8f85ec5513, type: 3}
+  m_PrefabInstance: {fileID: 601964356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b7835b33e204c43a97f5e7da6a79a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1191033438
 PrefabInstance:
   m_ObjectHideFlags: 0

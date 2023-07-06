@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerProp[] PlayerRound;
     [SerializeField] private int[] CoinSpawnProbability;
     [SerializeField] private int[] DamageSysInterval;
-    [SerializeField] private int[] DamageSysTimer;
+    [SerializeField] private int[] DamageSysWarn;
     [SerializeField] private int[] mapIndexs;
     [SerializeField] private float[] timers;
     [SerializeField] private GameObject PlayerScene;
@@ -51,11 +51,13 @@ public class GameManager : MonoBehaviour
     public GameObject Pause { get => PauseMenu; }
     public int Probability { get => CoinSpawnProbability[actualIndex]; }
     public int DamageInterval { get => DamageSysInterval[actualIndex]; }
-    public int DamageTimer { get => DamageSysTimer[actualIndex]; }
+    public int DamageWarn { get => DamageSysWarn[actualIndex]; }
     public PlayerProp GetPropertys { get => PlayerRound[actualIndex]; }
     public int Monedas { get; private set; }
     public bool OnShop { get; private set; }
     public bool BuyPerformed { get; private set; }
+
+    public bool[] BuyBuffer { get; private set; }
 
     void Awake()
     {
@@ -72,6 +74,8 @@ public class GameManager : MonoBehaviour
         Instance = this;
         Monedas = actualIndex = 0;
         loadProgress = null;
+        BuyPerformed = false;
+        BuyBuffer = new bool[4];
         DontDestroyOnLoad(PlayerScene);
         DontDestroyOnLoad(Loading);
         DontDestroyOnLoad(GameOverScreen);
@@ -197,6 +201,7 @@ public class GameManager : MonoBehaviour
             case 3:
                 price = 25;
                 PlayerRound[actualIndex].extraHeart = true;
+                AddHearts(1);
                 break;
             case 4:
                 price = 25;
@@ -214,26 +219,32 @@ public class GameManager : MonoBehaviour
                 price = 50;
                 for (int i = actualIndex; i < PlayerRound.Length; ++i)
                     PlayerRound[i].dobleJump = true;
+                BuyBuffer[0] = true;
                 break;
             case 8:
                 price = 50;
                 for (int i = actualIndex; i < PlayerRound.Length; ++i)
                     PlayerRound[i].dobleWallJump = true;
+                BuyBuffer[1] = true;
                 break;
             case 9:
                 price = 50;
                 for (int i = actualIndex; i < PlayerRound.Length; ++i)
                     PlayerRound[i].extraHeart = true;
+                BuyBuffer[2] = true;
                 break;
             case 10:
                 price = 50;
                 for (int i = actualIndex; i < PlayerRound.Length; ++i)
                     PlayerRound[i].plusJump = true;
+                BuyBuffer[3] = true;
                 break;
             case 11:
                 price = 50;
                 for (int i = actualIndex; i < PlayerRound.Length; ++i)
                     PlayerRound[i].plusVelocity = true;
+                BuyBuffer[4] = true;
+
                 break;
             default:
                 break;

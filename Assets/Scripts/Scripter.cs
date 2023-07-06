@@ -14,7 +14,8 @@ public class Scripter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = Random.Range(5, 20);
+        int damageInterval = GameManager.Instance.DamageInterval;
+        timer = Random.Range(damageInterval, damageInterval + 2f);
         OgCamerapos = CameraShake.transform.position;
         Spawning = false;
     }
@@ -22,17 +23,19 @@ public class Scripter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (timer > 0)
+        if (timer > 0 && !Spawning)
         {
             timer -= Time.deltaTime;
             if(timer <= 0f)
             {
                 Spawning = true;
-                FireSpawner.GetComponent<SpawnFire>().timer = Random.Range(5, 10);
-                timer = Random.Range(5, 20);
+                FireSpawner.GetComponent<SpawnFire>().timer = Random.Range(2f, 3f);
+                int damageInterval = GameManager.Instance.DamageInterval;
+                timer = Random.Range(damageInterval, damageInterval + 2f);
             }
         }
-        if (!Spawning) CameraShake.transform.position = OgCamerapos;
+        if (!Spawning) 
+            CameraShake.transform.position = OgCamerapos;
     }
 
     private void FixedUpdate()

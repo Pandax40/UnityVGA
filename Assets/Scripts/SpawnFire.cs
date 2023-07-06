@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnFire : MonoBehaviour
@@ -20,9 +21,9 @@ public class SpawnFire : MonoBehaviour
     [SerializeField] private GameObject WarningColumn;
 
     private float auxFreq;
-    private bool FirstSpawn;
     private Vector2 centerPosition;
     private GameObject Column;
+    private bool needColumn;
     private float SoundTimer;
 
     // Start is called before the first frame update
@@ -31,35 +32,35 @@ public class SpawnFire : MonoBehaviour
         auxFreq = freq;
         timer = 0;
         centerPosition = new Vector2(Random.Range(-12, 12), 20);
-        FirstSpawn = true;
         SoundTimer = 0;
+        needColumn = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        SoundTimer -= Time.deltaTime;
-        if(timer > 0f)
+        if(SoundTimer > 0) 
+            SoundTimer -= Time.deltaTime;
+        if (timer > 0f && !needColumn && Column == null)
         {
             timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                centerPosition = new Vector2(Random.Range(-12, 12), 20);
-                FirstSpawn = true;
-            }
+            if (timer <= 0f)
+                needColumn = true;
         }
-        if (FirstSpawn && timer > 0)
+        else if (timer > 0f && Column == null) //Primera vez
         {
+            centerPosition = new Vector2(Random.Range(-11, 11), 20);
             Column = Instantiate(WarningColumn, new Vector3(centerPosition.x, 0, 0f), Quaternion.identity);
             SoundColumn = Instantiate(ColumnPlayer);
-            Destroy(Column, 5f); //Cambiar 5f por el intervalo del game manager
-            FirstSpawn = false;
+            int damageWarn = GameManager.Instance.DamageWarn;
+            Destroy(Column, damageWarn); //Cambiar 5f por el intervalo del game manager
+            needColumn = false;
         }
     }
 
     private void FixedUpdate()
     {   
-        if (timer > 0f && Column == null)
+        if (timer > 0f && Column == null && !needColumn)
         {
             auxFreq -= Time.fixedDeltaTime;
             if (auxFreq <= 0f)
@@ -75,7 +76,8 @@ public class SpawnFire : MonoBehaviour
                 auxFreq = freq;
             }
         }
-        if (timer <= 0) Scripter.Spawning = false;
+        if (timer <= 0) 
+            Scripter.Spawning = false;
     }
 
     public void FireSpawn(Vector3 pos)
