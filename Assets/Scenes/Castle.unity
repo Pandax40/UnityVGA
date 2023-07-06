@@ -8890,6 +8890,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1813926646860583332, guid: 584e0b05f0942af448003c0940e35c9e, type: 3}
+      propertyPath: fireSpawner
+      value: 
+      objectReference: {fileID: 20497912}
+    - target: {fileID: 1813926646860583332, guid: 584e0b05f0942af448003c0940e35c9e, type: 3}
       propertyPath: sectionManager
       value: 
       objectReference: {fileID: 784579129}

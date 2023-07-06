@@ -8632,6 +8632,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1813926646860583332, guid: 584e0b05f0942af448003c0940e35c9e, type: 3}
+      propertyPath: fireSpawner
+      value: 
+      objectReference: {fileID: 2036452492}
+    - target: {fileID: 1813926646860583332, guid: 584e0b05f0942af448003c0940e35c9e, type: 3}
       propertyPath: sectionManager
       value: 
       objectReference: {fileID: 968249314}
@@ -8761,6 +8765,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a63dd650b61dfa40997d48c42998084, type: 3}
+--- !u!114 &2036452492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2627623296206799878, guid: 5a63dd650b61dfa40997d48c42998084, type: 3}
+  m_PrefabInstance: {fileID: 2036452491}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643171033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a832002de164141b56c41cd45d45e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2047139315
 GameObject:
   m_ObjectHideFlags: 0
