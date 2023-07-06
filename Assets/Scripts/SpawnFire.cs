@@ -80,6 +80,16 @@ public class SpawnFire : MonoBehaviour
             Scripter.Spawning = false;
     }
 
+    public void PauseFire()
+    {
+        Transform[] components = GetComponentsInChildren<Transform>();
+        timer = 0f;
+        needColumn = true;
+        Destroy(SoundColumn);
+        for (int i = 1; i < components.Length; ++i)
+            Destroy(components[i]);
+    }
+
     public void FireSpawn(Vector3 pos)
     {
         CameraShake.ShakeCamera();
