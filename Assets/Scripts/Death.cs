@@ -20,6 +20,7 @@ public class Death : MonoBehaviour
             GameObject Sonido = Instantiate(DamagePlayer);
             Destroy(Sonido,1f);
             collision.transform.position = sectionManager.GetSpawnPos();
+            GameManager.Instance.Interfaz.ShakeHearts(1f);
             death = false;
         }
         else 

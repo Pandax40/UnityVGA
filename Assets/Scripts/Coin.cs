@@ -19,6 +19,10 @@ public class Coin : MonoBehaviour
             GameManager.Instance.Interfaz.UpdateCoins();
             Instantiate(PickupParticles, collision.transform);
         }
+        else if (collision.tag == "Fire")
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame

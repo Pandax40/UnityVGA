@@ -5,9 +5,10 @@ using UnityEngine.Experimental.AI;
 
 public class SectionManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] Prefabs;
+    public GameObject[] Prefabs;
 
     public static AudioSource AudioSource;
+    public Scripter ScripterFire;
 
     private Transform[][] sectionTransforms;
     private Transform[][] platformsColiders;
@@ -92,6 +93,22 @@ public class SectionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        /*if(destroyedPlatform)
+        {
+            destroyedPlatform = false;
+            Queue<GameObject> prefabs = GenerateQueue();
+            for (int i = 0; i < matrixRow; i++)
+            {
+                for (int j = 0; j < matrixColumn; j++)
+                {
+                    if (platformsColiders[i][j] == null)
+                    {
+                        PlatformGenerator platform = sectionTransforms[i][j].GetComponent<PlatformGenerator>();
+                        platformsColiders[i][j] = platform.GeneratePlatform(prefabs.Dequeue());
+                    }
+                }
+                    
+            }
+        }*/
     }
 }

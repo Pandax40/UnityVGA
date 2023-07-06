@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     public int Monedas { get; private set; }
     public bool OnShop { get; private set; }
     public bool BuyPerformed { get; private set; }
-
+    public bool Inmortal { get; private set; }
     public bool[] BuyBuffer { get; private set; }
 
     void Awake()
@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
         Monedas = actualIndex = 0;
         loadProgress = null;
         BuyPerformed = false;
+        Inmortal = false;
         BuyBuffer = new bool[5];
         DontDestroyOnLoad(PlayerScene);
         DontDestroyOnLoad(Loading);
@@ -168,6 +169,7 @@ public class GameManager : MonoBehaviour
     //Indica si se a ha muerto el personaje.
     public bool RemoveHeart()
     {
+        if(Inmortal) return false;
         for(int i = actualIndex; i < mapIndexs.Length; ++i)
         {
             --PlayerRound[i].hearts;
@@ -188,6 +190,12 @@ public class GameManager : MonoBehaviour
     public void BuyKey(InputAction.CallbackContext context)
     {
         BuyPerformed = context.performed;
+    }
+
+    public void InmortalKey(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+            Inmortal = !Inmortal;
     }
 
     public void BuyItem(int id)

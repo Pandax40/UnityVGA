@@ -89,6 +89,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoDeath"",
+                    ""type"": ""Button"",
+                    ""id"": ""dac7f3d0-0960-407d-a807-cb507ce58ea0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -267,6 +276,17 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Buy"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b847f6d-a632-470c-a941-f216a3c03d52"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NoDeath"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -282,6 +302,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Controles_FastFall = m_Controles.FindAction("Fast Fall", throwIfNotFound: true);
         m_Controles_Pause = m_Controles.FindAction("Pause", throwIfNotFound: true);
         m_Controles_Buy = m_Controles.FindAction("Buy", throwIfNotFound: true);
+        m_Controles_NoDeath = m_Controles.FindAction("NoDeath", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -350,6 +371,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controles_FastFall;
     private readonly InputAction m_Controles_Pause;
     private readonly InputAction m_Controles_Buy;
+    private readonly InputAction m_Controles_NoDeath;
     public struct ControlesActions
     {
         private @InputSystem m_Wrapper;
@@ -361,6 +383,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @FastFall => m_Wrapper.m_Controles_FastFall;
         public InputAction @Pause => m_Wrapper.m_Controles_Pause;
         public InputAction @Buy => m_Wrapper.m_Controles_Buy;
+        public InputAction @NoDeath => m_Wrapper.m_Controles_NoDeath;
         public InputActionMap Get() { return m_Wrapper.m_Controles; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -391,6 +414,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Buy.started += instance.OnBuy;
             @Buy.performed += instance.OnBuy;
             @Buy.canceled += instance.OnBuy;
+            @NoDeath.started += instance.OnNoDeath;
+            @NoDeath.performed += instance.OnNoDeath;
+            @NoDeath.canceled += instance.OnNoDeath;
         }
 
         private void UnregisterCallbacks(IControlesActions instance)
@@ -416,6 +442,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Buy.started -= instance.OnBuy;
             @Buy.performed -= instance.OnBuy;
             @Buy.canceled -= instance.OnBuy;
+            @NoDeath.started -= instance.OnNoDeath;
+            @NoDeath.performed -= instance.OnNoDeath;
+            @NoDeath.canceled -= instance.OnNoDeath;
         }
 
         public void RemoveCallbacks(IControlesActions instance)
@@ -442,5 +471,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnFastFall(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnBuy(InputAction.CallbackContext context);
+        void OnNoDeath(InputAction.CallbackContext context);
     }
 }

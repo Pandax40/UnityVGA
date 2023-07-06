@@ -7900,6 +7900,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8001349894351173826, guid: 0f8417628bc2ab041a4f547b5b49742d, type: 3}
+      propertyPath: ScripterFire
+      value: 
+      objectReference: {fileID: 67647563}
+    - target: {fileID: 8001349894351173826, guid: 0f8417628bc2ab041a4f547b5b49742d, type: 3}
       propertyPath: Prefabs.Array.size
       value: 7
       objectReference: {fileID: 0}

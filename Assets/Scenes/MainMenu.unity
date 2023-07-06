@@ -315,6 +315,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
+      value: dac7f3d0-0960-407d-a807-cb507ce58ea0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
+      value: Controles/NoDeath[/Keyboard/i]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1138240669}
@@ -322,6 +342,26 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 779631417}
+    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 779631417}
+    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InmortalKey
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862676011788400524, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7502305412776154647, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
       propertyPath: m_Name
       value: Player

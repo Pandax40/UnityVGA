@@ -38,7 +38,7 @@ public class Platform : MonoBehaviour
             if(random < Probability && Spawned == null)
             {
                 int randomHeart = Random.Range(0, 100);
-                if (GameManager.Instance.GetPropertys.CoinsToHearts && randomHeart > 90)
+                if (GameManager.Instance.GetPropertys.CoinsToHearts && randomHeart > 80)
                     Spawned = Instantiate(heartPrefab, transform.position + new Vector3(0,1.7f,0), Quaternion.identity);
                 else
                     Spawned = Instantiate(coinPrefab, transform.position + new Vector3(0, 1.7f, 0), Quaternion.identity);
