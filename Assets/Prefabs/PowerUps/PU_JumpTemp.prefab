@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 788649028, guid: 40056e9cb6823f349a1b3055ed10267e, type: 3}
+  m_Sprite: {fileID: -981552899, guid: 40056e9cb6823f349a1b3055ed10267e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -998827957, guid: 40056e9cb6823f349a1b3055ed10267e, type: 3}
+  m_Sprite: {fileID: 863423414, guid: 40056e9cb6823f349a1b3055ed10267e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -570,10 +570,10 @@ Transform:
   m_Children:
   - {fileID: 2363321942653074932}
   - {fileID: 6101440310018436831}
-  - {fileID: 5100109345665129409}
   - {fileID: 4869553517599968060}
+  - {fileID: 5100109345665129409}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6195914897529179440
 BoxCollider2D:
@@ -633,3 +633,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 5
+  comprable: 0

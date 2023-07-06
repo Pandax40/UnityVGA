@@ -11,7 +11,7 @@ public class PoUpInfoManager : MonoBehaviour
         "Coins may spawn as hearts. (1 Round)",
         "Get x2 coins. (1 Round)",
         "Heal 1 heart.",
-        "+1 NOT permanent heart.",
+        "+1 NON-permanent heart.",
         "Heal all your hearts.",
         "Jump higher. (1 Round)",
         "Extra velocity. (1 Round)",
