@@ -15,7 +15,7 @@ public class Scripter : MonoBehaviour
     void Start()
     {
         int damageInterval = GameManager.Instance.DamageInterval;
-        timer = Random.Range(damageInterval, damageInterval + 2f);
+        timer = Random.Range(damageInterval, damageInterval + 1f);
         OgCamerapos = CameraShake.transform.position;
         Spawning = false;
     }
@@ -31,7 +31,7 @@ public class Scripter : MonoBehaviour
                 Spawning = true;
                 FireSpawner.GetComponent<SpawnFire>().timer = Random.Range(2f, 3f);
                 int damageInterval = GameManager.Instance.DamageInterval;
-                timer = Random.Range(damageInterval, damageInterval + 2f);
+                timer = Random.Range(damageInterval, damageInterval + 1f);
             }
         }
         if (!Spawning) 

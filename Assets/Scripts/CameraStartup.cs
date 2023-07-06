@@ -8,7 +8,6 @@ public class CameraStartup : MonoBehaviour
     void Start()
     {
         GameManager.Instance.Interfaz.gameObject.GetComponent<Canvas>().worldCamera = this.GetComponent<UnityEngine.Camera>();
-        GameManager.Instance.GameOver.GetComponent<Canvas>().worldCamera = this.GetComponent<UnityEngine.Camera>();
         GameManager.Instance.Pause.GetComponent<Canvas>().worldCamera = this.GetComponent<UnityEngine.Camera>();
     }
 
