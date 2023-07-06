@@ -11364,6 +11364,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 608664180}
+    - target: {fileID: 3123421887187261572, guid: 925f1a6c6024a3743a1b9b8f85ec5513, type: 3}
+      propertyPath: forest
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4287383079886790600, guid: 925f1a6c6024a3743a1b9b8f85ec5513, type: 3}
       propertyPath: m_RootOrder
       value: 6
