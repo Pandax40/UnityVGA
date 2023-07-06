@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     [SerializeField] private int id;
+    public GameObject BuyPlayer;
     public bool comprable;
     private bool onStay;
     private PoUpInfoManager manager;
@@ -34,6 +35,8 @@ public class PowerUp : MonoBehaviour
             if(comprable)
             {
                 GameManager.Instance.BuyItem(id);
+                GameObject Sonido = Instantiate(BuyPlayer);
+                Destroy(Sonido, 1f);
                 Destroy(gameObject);
             }
         }

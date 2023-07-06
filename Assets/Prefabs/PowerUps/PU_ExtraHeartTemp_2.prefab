@@ -34,7 +34,7 @@ Transform:
   - {fileID: 3869942940776078229}
   - {fileID: 444604063192829798}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1803116369533915047
 BoxCollider2D:
@@ -94,6 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
+  BuyPlayer: {fileID: 3818129547808141850, guid: 698e6ac8ed902264f8185bffb684e7e1, type: 3}
+  comprable: 0
 --- !u!1 &5540869380732393017
 GameObject:
   m_ObjectHideFlags: 0

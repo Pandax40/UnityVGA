@@ -15,7 +15,7 @@ public class Death : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(Random.Range(0, 3));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
