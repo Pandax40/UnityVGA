@@ -7,26 +7,21 @@ using UnityEngine.SceneManagement;
 public class PauseMenuManager : MonoBehaviour
 {
     private bool activated;
-    public GameObject pausemenu;
     public AudioSource AudioSource;
     public AudioClip PauseON;
     public AudioClip PauseOFF;
 
-    void Awake()
+    void Start()
     {
         activated = false;
-        pausemenu.SetActive(false);
         Time.timeScale = 1f;
-    }
-
-    void Update()
-    {
-        
     }
 
     public void Pause(InputAction.CallbackContext ctx)
     {
-        PauseAux();
+        Debug.Log(SceneManager.GetActiveScene().buildIndex);
+        if(SceneManager.GetActiveScene().buildIndex > 1)
+            PauseAux();
     }
 
     public void PlayButton()
@@ -40,14 +35,14 @@ public class PauseMenuManager : MonoBehaviour
         {
             AudioSource.PlayOneShot(PauseOFF, 3f);
             activated = false;
-            pausemenu.SetActive(false);
+            gameObject.SetActive(false);
             Time.timeScale = 1f;
         }
         else
         {
             AudioSource.PlayOneShot(PauseON, 3f);
             activated = true;
-            pausemenu.SetActive(true);
+            gameObject.SetActive(true);
             Time.timeScale = 0f;
         }
     }

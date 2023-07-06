@@ -25,6 +25,7 @@ public class SectionManager : MonoBehaviour
         FixPlatform(true);
         Platform.Probability = GameManager.Instance.Probability;
         Debug.Log("Actual Coin Probability Spawn: " + GameManager.Instance.Probability);
+        GameManager.SpawnPos = GetSpawnPos();
     }
 
     private Queue<GameObject> GenerateQueue() 

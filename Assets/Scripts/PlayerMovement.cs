@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         DirectionAndFix(2);
-        Raycasts(0.55f);
+        Raycasts(0.57f);
         AnimationsSet();
 
         //Ice Sliding and Dirt

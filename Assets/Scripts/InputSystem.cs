@@ -71,6 +71,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""798ef829-d528-4c39-80ff-7593942e922d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -216,27 +225,10 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Fast Fall"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Pause"",
-            ""id"": ""e8a06ca7-1d86-4f40-af18-2c4b8bdbd5f5"",
-            ""actions"": [
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""fed3663b-b1a2-45cd-9e49-6f92bf7ca6aa"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""52ed8775-cf20-4992-8888-d616eb61ae54"",
+                    ""id"": ""5ac2f388-4fbf-4087-836c-248002447fd9"",
                     ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -247,7 +239,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a44a1731-b996-4bf8-a0a7-3189c15ecb6e"",
+                    ""id"": ""9f694f54-4052-4463-a6c1-05a889df2179"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -268,9 +260,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Controles_Slide = m_Controles.FindAction("Slide", throwIfNotFound: true);
         m_Controles_Shift = m_Controles.FindAction("Shift", throwIfNotFound: true);
         m_Controles_FastFall = m_Controles.FindAction("Fast Fall", throwIfNotFound: true);
-        // Pause
-        m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
-        m_Pause_Pause = m_Pause.FindAction("Pause", throwIfNotFound: true);
+        m_Controles_Pause = m_Controles.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -337,6 +327,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controles_Slide;
     private readonly InputAction m_Controles_Shift;
     private readonly InputAction m_Controles_FastFall;
+    private readonly InputAction m_Controles_Pause;
     public struct ControlesActions
     {
         private @InputSystem m_Wrapper;
@@ -346,6 +337,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @Slide => m_Wrapper.m_Controles_Slide;
         public InputAction @Shift => m_Wrapper.m_Controles_Shift;
         public InputAction @FastFall => m_Wrapper.m_Controles_FastFall;
+        public InputAction @Pause => m_Wrapper.m_Controles_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Controles; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -370,6 +362,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @FastFall.started += instance.OnFastFall;
             @FastFall.performed += instance.OnFastFall;
             @FastFall.canceled += instance.OnFastFall;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IControlesActions instance)
@@ -389,6 +384,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @FastFall.started -= instance.OnFastFall;
             @FastFall.performed -= instance.OnFastFall;
             @FastFall.canceled -= instance.OnFastFall;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IControlesActions instance)
@@ -406,52 +404,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         }
     }
     public ControlesActions @Controles => new ControlesActions(this);
-
-    // Pause
-    private readonly InputActionMap m_Pause;
-    private List<IPauseActions> m_PauseActionsCallbackInterfaces = new List<IPauseActions>();
-    private readonly InputAction m_Pause_Pause;
-    public struct PauseActions
-    {
-        private @InputSystem m_Wrapper;
-        public PauseActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Pause => m_Wrapper.m_Pause_Pause;
-        public InputActionMap Get() { return m_Wrapper.m_Pause; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PauseActions set) { return set.Get(); }
-        public void AddCallbacks(IPauseActions instance)
-        {
-            if (instance == null || m_Wrapper.m_PauseActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PauseActionsCallbackInterfaces.Add(instance);
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
-        }
-
-        private void UnregisterCallbacks(IPauseActions instance)
-        {
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
-        }
-
-        public void RemoveCallbacks(IPauseActions instance)
-        {
-            if (m_Wrapper.m_PauseActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IPauseActions instance)
-        {
-            foreach (var item in m_Wrapper.m_PauseActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_PauseActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public PauseActions @Pause => new PauseActions(this);
     public interface IControlesActions
     {
         void OnHorizontal(InputAction.CallbackContext context);
@@ -459,9 +411,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnSlide(InputAction.CallbackContext context);
         void OnShift(InputAction.CallbackContext context);
         void OnFastFall(InputAction.CallbackContext context);
-    }
-    public interface IPauseActions
-    {
         void OnPause(InputAction.CallbackContext context);
     }
 }

@@ -8,9 +8,7 @@ public struct PlayerProp
     public PlayerProp(int hearts) 
     {
         runParticles = 0;
-        plusJump = plusVelocity = dobleWallJump = dobleJump = false;
-           
-        extraHeart = true;
+        plusJump = plusVelocity = dobleWallJump = dobleJump = extraHeart = false;
         this.hearts = hearts; 
     }
     public int runParticles; //Maps [0] Forest [1] Cave [2] Castle
@@ -26,6 +24,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public static Vector3 SpawnPos;
+
     [SerializeField] private PlayerProp[] PlayerRound;
     [SerializeField] private int[] CoinSpawnProbability;
     [SerializeField] private int[] DamageSysInterval;
@@ -35,7 +35,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject PlayerScene;
     [SerializeField] private UI UIEstatica;
     [SerializeField] private GameObject Loading;
-    [SerializeField] private GameObject ControlScreen;
+    [SerializeField] private GameObject GameOverScreen;
+    [SerializeField] private GameObject PauseMenu;
 
     private int actualIndex;
 
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     private bool firstLevel;
     public GameObject Player { get => PlayerScene; }
     public UI Interfaz { get => UIEstatica; }
+    public GameObject GameOver { get => GameOverScreen; }
     public int Probability { get => CoinSpawnProbability[actualIndex]; }
     public int DamageInterval { get => DamageSysInterval[actualIndex]; }
     public int DamageTimer { get => DamageSysTimer[actualIndex]; }
@@ -63,6 +65,10 @@ public class GameManager : MonoBehaviour
         loadProgress = null;
         firstLevel = true;
         DontDestroyOnLoad(gameObject);
+        PlayerRound = new PlayerProp[mapIndexs.Length];
+        for (int i = 0; i < PlayerRound.Length; ++i)
+            PlayerRound[i] = new PlayerProp(3);
+        actualIndex = 0;
     }
 
     public void LoadFirstLevel()
@@ -70,7 +76,8 @@ public class GameManager : MonoBehaviour
         PlayerRound = new PlayerProp[mapIndexs.Length];
         for (int i = 0; i < PlayerRound.Length; ++i)
             PlayerRound[i] = new PlayerProp(3);
-        ControlScreen.SetActive(true);
+        actualIndex = 0;
+        loadProgress = SceneManager.LoadSceneAsync(mapIndexs[0]);
     }
     void Update()
     {
@@ -80,20 +87,15 @@ public class GameManager : MonoBehaviour
             Player.SetActive(true);
             Interfaz.gameObject.SetActive(true);
             loadProgress = null;
+            Player.transform.position = SpawnPos;
             firstLevel = false;
         }
         else if(loadProgress != null)
         {
             Loading.SetActive(true);
-            //Interfaz.gameObject.SetActive(false);
+            Interfaz.gameObject.SetActive(false);
             Player.SetActive(false);
         }
-            
-    }
-
-    public void LoadScene(int mapIndex)
-    {
-        loadProgress = SceneManager.LoadSceneAsync(mapIndexs[mapIndex]);
     }
 
     private void FixedUpdate()

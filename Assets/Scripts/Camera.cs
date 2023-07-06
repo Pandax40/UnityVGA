@@ -8,6 +8,7 @@ public class Camera : MonoBehaviour
     void Start()
     {
         GameManager.Instance.Interfaz.GetComponent<Canvas>().worldCamera = this.GetComponent<UnityEngine.Camera>();
+        GameManager.Instance.GameOver.GetComponent<Canvas>().worldCamera = this.GetComponent<UnityEngine.Camera>();
     }
 
     // Update is called once per frame
