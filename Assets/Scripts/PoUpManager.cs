@@ -9,13 +9,18 @@ public class PoUpManager : MonoBehaviour
 {
     public GameObject[] PU = new GameObject[12];
 
+    public static bool IsUpdated;
+
     private GameObject[] cajas;
     public bool forest;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         cajas = new GameObject[3];
+    }
+
+    public void UpdateShop()
+    {
         int[] ids = new int[3];
         ids[0] = UnityEngine.Random.Range(0, 3);
         ids[1] = UnityEngine.Random.Range(3, 7);
@@ -35,5 +40,10 @@ public class PoUpManager : MonoBehaviour
             cajas[1].GetComponent<PowerUp>().comprable = GameManager.Instance.Monedas >= 25;
         if(!forest && cajas[2] != null) 
             cajas[2].GetComponent<PowerUp>().comprable = GameManager.Instance.Monedas >= 50;
+        if(IsUpdated)
+        {
+            UpdateShop();
+            IsUpdated = false;
+        }
     }
 }

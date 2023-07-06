@@ -124,8 +124,11 @@ public class GameManager : MonoBehaviour
                 Interfaz.gameObject.SetActive(true);
                 Player.SetActive(true);
                 Player.transform.position = SpawnPos;
-                if(OnShop) 
+                if (OnShop)
+                {
                     Player.transform.position = new Vector3(-6,-2.6f,0);
+                    PoUpManager.IsUpdated = true;
+                }
             }
             else
             {
@@ -237,6 +240,7 @@ public class GameManager : MonoBehaviour
                 for (int i = actualIndex; i < PlayerRound.Length; ++i)
                     PlayerRound[i].extraHeart = true;
                 BuyBuffer[2] = true;
+                AddHearts(1);
                 break;
             case 10:
                 price = 50;
