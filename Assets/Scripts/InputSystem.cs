@@ -80,6 +80,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Buy"",
+                    ""type"": ""Button"",
+                    ""id"": ""80d7f361-d8f1-46ec-a9ce-54384d669e96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -247,6 +256,17 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa68a99e-f831-4492-86bb-1c13767190b2"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Buy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -261,6 +281,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Controles_Shift = m_Controles.FindAction("Shift", throwIfNotFound: true);
         m_Controles_FastFall = m_Controles.FindAction("Fast Fall", throwIfNotFound: true);
         m_Controles_Pause = m_Controles.FindAction("Pause", throwIfNotFound: true);
+        m_Controles_Buy = m_Controles.FindAction("Buy", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -328,6 +349,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controles_Shift;
     private readonly InputAction m_Controles_FastFall;
     private readonly InputAction m_Controles_Pause;
+    private readonly InputAction m_Controles_Buy;
     public struct ControlesActions
     {
         private @InputSystem m_Wrapper;
@@ -338,6 +360,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @Shift => m_Wrapper.m_Controles_Shift;
         public InputAction @FastFall => m_Wrapper.m_Controles_FastFall;
         public InputAction @Pause => m_Wrapper.m_Controles_Pause;
+        public InputAction @Buy => m_Wrapper.m_Controles_Buy;
         public InputActionMap Get() { return m_Wrapper.m_Controles; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -365,6 +388,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @Buy.started += instance.OnBuy;
+            @Buy.performed += instance.OnBuy;
+            @Buy.canceled += instance.OnBuy;
         }
 
         private void UnregisterCallbacks(IControlesActions instance)
@@ -387,6 +413,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @Buy.started -= instance.OnBuy;
+            @Buy.performed -= instance.OnBuy;
+            @Buy.canceled -= instance.OnBuy;
         }
 
         public void RemoveCallbacks(IControlesActions instance)
@@ -412,5 +441,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnShift(InputAction.CallbackContext context);
         void OnFastFall(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnBuy(InputAction.CallbackContext context);
     }
 }

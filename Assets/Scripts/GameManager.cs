@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public struct PlayerProp
@@ -44,12 +45,15 @@ public class GameManager : MonoBehaviour
     public GameObject Player { get => PlayerScene; }
     public UI Interfaz { get => UIEstatica.GetComponent<UI>(); }
     public GameObject GameOver { get => GameOverScreen; }
+    public GameObject Pause { get => PauseMenu; }
     public int Probability { get => CoinSpawnProbability[actualIndex]; }
     public int DamageInterval { get => DamageSysInterval[actualIndex]; }
     public int DamageTimer { get => DamageSysTimer[actualIndex]; }
     public PlayerProp GetPropertys { get => PlayerRound[actualIndex]; }
     public int Monedas { get; private set; }
     public bool OnShop { get; set; }
+
+    public bool BuyPerformed { get; private set; }
 
     void Awake()
     {
@@ -162,8 +166,13 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    public void BuyKey(InputAction.CallbackContext context)
+    {
+        BuyPerformed = context.performed;
+    }
+
     public void AddHeart()
     {
-        Monedas++;
+        //Monedas++;
     }
 }
