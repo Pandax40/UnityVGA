@@ -20,7 +20,6 @@ public class PoUpInfoManager : MonoBehaviour
         "+1 permanent heart.",    
         "Jump higher.",
         "Extra velocity."
-        
     };
 
     void Start()

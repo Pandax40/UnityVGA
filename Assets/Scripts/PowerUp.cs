@@ -29,7 +29,13 @@ public class PowerUp : MonoBehaviour
         }
 
         if (onStay && GameManager.Instance.BuyPerformed)
-            Destroy(gameObject);
+        {
+            if(comprable)
+            {
+                GameManager.Instance.BuyItem(id);
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -7,9 +7,10 @@ public class Platform : MonoBehaviour
     public static int Probability;
 
     [SerializeField] private GameObject coinPrefab;
-    [SerializeField] private float DestroyCoinTimer;
+    [SerializeField] private GameObject heartPrefab;
+    [SerializeField] private float DestroyTimer;
     private new Collider2D collider;
-    private GameObject coinSpawned;
+    private GameObject Spawned;
     private float timer;            //Delay entre randoms
     private PhysicsMaterial2D materialSlime;
 
@@ -33,10 +34,13 @@ public class Platform : MonoBehaviour
         if(timer < 0f)
         {   
             int random = Random.Range(0, 100);
-            if(random < Probability && coinSpawned == null)
+            if(random < Probability && Spawned == null)
             {
-                coinSpawned = Instantiate(coinPrefab, transform.position + new Vector3(0,1.7f,0), Quaternion.identity);
-                Destroy(coinSpawned, DestroyCoinTimer);
+                if(GameManager.Instance.GetPropertys.CoinsToHearts)
+                    Spawned = Instantiate(heartPrefab, transform.position + new Vector3(0,1.7f,0), Quaternion.identity);
+                else
+                    Spawned = Instantiate(coinPrefab, transform.position + new Vector3(0, 1.7f, 0), Quaternion.identity);
+                Destroy(Spawned, DestroyTimer);
             }
             timer = Random.Range(0f, 4f);
         }
