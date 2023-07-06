@@ -29,7 +29,7 @@ public class Damage : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.CompareTag("Fire"))
+        if(collision.transform.CompareTag("Fire") && Death.timer <= 0f)
         {
             health -= 0.1f;
             if(health <= 0f)

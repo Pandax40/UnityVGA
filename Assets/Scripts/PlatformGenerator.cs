@@ -8,6 +8,8 @@ public class PlatformGenerator : MonoBehaviour
     private GameObject platform;
     private float distanceX;
     private float distanceY;
+    private int i;
+    private int j;
     private float timer;
     private bool isDestroyed;
 
@@ -17,8 +19,10 @@ public class PlatformGenerator : MonoBehaviour
         distanceY = this.GetComponent<BoxCollider2D>().size.y / 2;
     }
 
-    public Transform GeneratePlatform(GameObject platformPrefab)
+    public Transform GeneratePlatform(GameObject platformPrefab, int i, int j)
     {
+        this.i = i;
+        this.j = j;
         float randomPosX = Random.Range(-distanceX, distanceX) + transform.position.x;
         float randomPosY = Random.Range(-distanceY, distanceY) + transform.position.y;
         if (platform != null) 
@@ -34,9 +38,7 @@ public class PlatformGenerator : MonoBehaviour
             timer -= Time.deltaTime;
             if(timer <= 0f)
             {
-                GameObject[] Prefabs = transform.parent.parent.GetComponent<SectionManager>().Prefabs;
-                int maxIndex = Prefabs.Length;
-                GeneratePlatform(Prefabs[Random.Range(0, maxIndex)]);
+                transform.parent.parent.GetComponent<SectionManager>().ReloadPlatform(i,j);
                 timer = 0f;
             }
         }
@@ -49,7 +51,7 @@ public class PlatformGenerator : MonoBehaviour
             isDestroyed = true;
             timer = 2f;
         }
-        else if(isDestroyed && !collision.gameObject.CompareTag("Fire") && collision.gameObject.CompareTag("Player"))
+        else if(isDestroyed && !collision.gameObject.CompareTag("Fire") && !collision.gameObject.CompareTag("Player"))
         {
             isDestroyed = false;
         }

@@ -8,7 +8,7 @@ public class Death : MonoBehaviour
     [SerializeField] private SpawnFire fireSpawner;
     public GameObject DamagePlayer;
     private bool death;
-    public float timer;
+    public static float timer;
     // Start is called before the first frame update
     void Start()
     {

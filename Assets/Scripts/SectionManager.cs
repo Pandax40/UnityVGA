@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
 
 public class SectionManager : MonoBehaviour
 {
-    public GameObject[] Prefabs;
+    [SerializeField] private GameObject[] Prefabs;
 
     public static AudioSource AudioSource;
     public Scripter ScripterFire;
@@ -14,6 +15,7 @@ public class SectionManager : MonoBehaviour
     private Transform[][] platformsColiders;
     private int matrixRow = 2;
     private int matrixColumn = 4;
+    private int fixedIndex;
     //TODO:
     // - Distancia maxima entre los caminos de la pared. Minimo tener un camino posible.
 
@@ -23,7 +25,8 @@ public class SectionManager : MonoBehaviour
         FillMatrix();
         Queue<GameObject> prefabs = GenerateQueue();
         GenerateTransforms(prefabs);
-        FixPlatform(true);
+        fixedIndex = Random.Range(0, matrixColumn);
+        FixPlatform(fixedIndex ,true);
         Platform.Probability = GameManager.Instance.Probability;
         Debug.Log("Actual Coin Probability Spawn: " + GameManager.Instance.Probability);
         GameManager.SpawnPos = GetSpawnPos();
@@ -41,13 +44,13 @@ public class SectionManager : MonoBehaviour
         return queuePrefabsRandom;
     }
 
-    private void FixPlatform(bool debugInfo)
+    private void FixPlatform(int indexHightCheck, bool debugInfo)
     {
-        int indexHightCheck = Random.Range(0, matrixColumn - 1);
         Vector3 posDownPlatform = platformsColiders[1][indexHightCheck].transform.position;
         Vector3 posUpPlatform = platformsColiders[0][indexHightCheck].transform.position;
         Vector3 distance = posDownPlatform - posUpPlatform;
-        if (distance.magnitude > 5.8f && debugInfo) Debug.Log("Corrigiendo Plataforma: " + indexHightCheck);
+        if (distance.magnitude > 5.8f && debugInfo) 
+            Debug.Log("Corrigiendo Plataforma: " + indexHightCheck);
         while (distance.magnitude > 5.8f)
         {
             posDownPlatform.y += 0.2f;
@@ -69,7 +72,7 @@ public class SectionManager : MonoBehaviour
             for (int j = 0; j < matrixColumn; j++)
             {
                 PlatformGenerator platform = sectionTransforms[i][j].GetComponent<PlatformGenerator>();
-                platformsColiders[i][j] = platform.GeneratePlatform(gameObjects.Dequeue());
+                platformsColiders[i][j] = platform.GeneratePlatform(gameObjects.Dequeue(), i, j);
             }   
     }
 
@@ -83,6 +86,15 @@ public class SectionManager : MonoBehaviour
         for (int i = 0; i < matrixRow; i++)
             for (int j = 0; j < matrixColumn; j++)
                 sectionTransforms[i][j] = auxVector[2 + j + (matrixColumn+1) * i];
+    }
+
+    public void ReloadPlatform(int i, int j)
+    {
+        int randomPrefabIndex = Random.Range(0, matrixColumn);
+        PlatformGenerator platform = sectionTransforms[i][j].GetComponent<PlatformGenerator>();
+        platformsColiders[i][j] = platform.GeneratePlatform(Prefabs[randomPrefabIndex], i, j);
+        if (j == fixedIndex) 
+            FixPlatform(j, true);
     }
 
     public Vector3 GetSpawnPos()
