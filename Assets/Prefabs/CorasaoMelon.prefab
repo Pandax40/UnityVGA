@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22151889438a58541854edb152e8fab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeartPlayer: {fileID: 0}
-  PickupParticles: {fileID: 0}
+  HeartPlayer: {fileID: 493682139728062574, guid: d9daabeda7918834284dc3ef19fe7854, type: 3}
+  PickupParticles: {fileID: 9058261125733827332, guid: 5ee2c43be1d219e488d507112ec69d73, type: 3}
 --- !u!1 &7727483281954956970
 GameObject:
   m_ObjectHideFlags: 0
