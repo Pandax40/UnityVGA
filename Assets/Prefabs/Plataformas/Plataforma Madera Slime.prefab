@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 2270814068727094264, guid: 13bf4913ddacae747b870ab34768097b, type: 3}
-  heartPrefab: {fileID: 0}
+  heartPrefab: {fileID: 1971173191670785776, guid: 7921bc6705770a943ac41533759c3ef9, type: 3}
   DestroyTimer: 8
 --- !u!50 &-2074247607774311274
 Rigidbody2D:

@@ -155,6 +155,7 @@ public class GameManager : MonoBehaviour
                 timers[actualIndex] = auxTimer;
                 actualIndex++;
                 Player.GetComponent<PlayerMovement>().ReloadPlayer();
+                Interfaz.UpdateHearts();
                 loadProgress = SceneManager.LoadSceneAsync(mapIndexs[actualIndex-1]+1);
             }
         }
