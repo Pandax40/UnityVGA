@@ -5,7 +5,7 @@ using UnityEngine;
 public class Nubes : MonoBehaviour
 {
     private SpriteRenderer nube;
-    [SerializeField] private int Speed;
+    [SerializeField] private float Speed;
 
     void Start()
     {
