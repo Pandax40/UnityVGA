@@ -714,33 +714,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Idea / Development:
-
-    - David Berrocal
-
-    - Ivan Moreno
-
-    - Marc
-    Ribas
-
-
-    Fonts:
-
-    - Pixel Operator (Jayvee Enaguas)
-
-
-    Sprites:
-
-    -
-    Warrior (Clembod)
-
-    - Scene Assets (Nauris Amatnieks)
-
-    - PixelAntasy (Mobile
-    Game Graphics)
-
-
-    Music:'
+  m_text: "Idea / Development:\n- David Berrocal\n- Ivan Moreno\n- Marc Ribas\n\nFonts:\n-
+    Pixel Operator (Jayvee Enaguas)\n\nSprites:\n- Warrior (Clembod)\n- Scene Assets
+    (Nauris Amatnieks)\n- PixelAntasy (Mobile Game Graphics)\n\nMusic:\n- Snd buyitem
+    (Bigpeepeemoment)\r\r\n- 16-bit music (bit by bit sound)\r\n- Sound Effects (pixabay)\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89a4676e9fe67fb4ba2d95cad3732959, type: 2}
   m_sharedMaterial: {fileID: 8010832138608425667, guid: 89a4676e9fe67fb4ba2d95cad3732959, type: 2}
