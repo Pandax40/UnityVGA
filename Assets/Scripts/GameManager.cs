@@ -115,8 +115,10 @@ public class GameManager : MonoBehaviour
             if (SceneManager.GetActiveScene().buildIndex > 2)
             {
                 Interfaz.gameObject.SetActive(true);
-                Player.transform.position = SpawnPos;
                 Player.SetActive(true);
+                Player.transform.position = SpawnPos;
+                Interfaz.UpdateHearts();
+                Interfaz.UpdateCoins();
                 if(OnShop) Player.transform.position = new Vector3(-6,-2.6f,0);
             }
             else

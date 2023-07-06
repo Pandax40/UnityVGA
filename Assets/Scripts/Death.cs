@@ -12,12 +12,6 @@ public class Death : MonoBehaviour
         death = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(Random.Range(0, 3));
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!GameManager.Instance.RemoveHeart() && !death)
