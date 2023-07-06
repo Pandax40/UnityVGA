@@ -15,12 +15,6 @@ public class UI : MonoBehaviour
     private Vector3 auxCoinPos;
     private Vector3 auxHeartPos;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-        gameObject.SetActive(false);
-    }
-
     // Start is called before the first frame update
     void Start()
     {

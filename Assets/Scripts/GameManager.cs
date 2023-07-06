@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int[] mapIndexs;
     [SerializeField] private float[] timers;
     [SerializeField] private GameObject PlayerScene;
-    [SerializeField] private UI UIEstatica;
+    [SerializeField] private GameObject UIEstatica;
     [SerializeField] private GameObject Loading;
     [SerializeField] private GameObject GameOverScreen;
     [SerializeField] private GameObject PauseMenu;
@@ -41,10 +41,8 @@ public class GameManager : MonoBehaviour
     private int actualIndex;
 
     private AsyncOperation loadProgress;
-
-    private bool firstLevel;
     public GameObject Player { get => PlayerScene; }
-    public UI Interfaz { get => UIEstatica; }
+    public UI Interfaz { get => UIEstatica.GetComponent<UI>(); }
     public GameObject GameOver { get => GameOverScreen; }
     public int Probability { get => CoinSpawnProbability[actualIndex]; }
     public int DamageInterval { get => DamageSysInterval[actualIndex]; }
@@ -57,14 +55,32 @@ public class GameManager : MonoBehaviour
     {
         if(Instance != null)
         {
+            Destroy(PlayerScene);
+            Destroy(Loading);
+            Destroy(GameOverScreen);
+            Destroy(PauseMenu);
+            Destroy(UIEstatica);
             Destroy(gameObject);
             return;
         }
         Instance = this;
         Monedas = actualIndex = 0;
         loadProgress = null;
-        firstLevel = true;
+        DontDestroyOnLoad(PlayerScene);
+        DontDestroyOnLoad(Loading);
+        DontDestroyOnLoad(GameOverScreen);
+        DontDestroyOnLoad(PauseMenu);
+        DontDestroyOnLoad(UIEstatica);
         DontDestroyOnLoad(gameObject);
+        PlayerScene.SetActive(false);
+        Loading.SetActive(false);
+        GameOverScreen.SetActive(false);
+        PauseMenu.SetActive(false);
+        UIEstatica.SetActive(false);
+    }
+
+    private void ReloadAll()
+    {
         PlayerRound = new PlayerProp[mapIndexs.Length];
         for (int i = 0; i < PlayerRound.Length; ++i)
             PlayerRound[i] = new PlayerProp(3);
@@ -73,22 +89,34 @@ public class GameManager : MonoBehaviour
 
     public void LoadFirstLevel()
     {
-        PlayerRound = new PlayerProp[mapIndexs.Length];
-        for (int i = 0; i < PlayerRound.Length; ++i)
-            PlayerRound[i] = new PlayerProp(3);
-        actualIndex = 0;
+        ReloadAll();
         loadProgress = SceneManager.LoadSceneAsync(mapIndexs[0]);
+    }
+
+    public void LoadMainMenu()
+    {
+        ReloadAll();
+        loadProgress = SceneManager.LoadSceneAsync(0);
     }
     void Update()
     {
         if(loadProgress != null && loadProgress.isDone)
         {
             Loading.SetActive(false);
-            Player.SetActive(true);
-            Interfaz.gameObject.SetActive(true);
+            PauseMenu.SetActive(false);
+            GameOver.SetActive(false);
             loadProgress = null;
-            Player.transform.position = SpawnPos;
-            firstLevel = false;
+            if (SceneManager.GetActiveScene().buildIndex > 1)
+            {
+                Interfaz.gameObject.SetActive(true);
+                Player.transform.position = SpawnPos;
+                Player.SetActive(true);
+            }
+            else
+            {
+                Player.SetActive(false);
+                Interfaz.gameObject.SetActive(false);
+            }
         }
         else if(loadProgress != null)
         {
@@ -100,7 +128,7 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (timers[actualIndex] > 0f && !OnShop && loadProgress == null && !firstLevel)
+        if (timers[actualIndex] > 0f && !OnShop && loadProgress == null)
         {
             timers[actualIndex] -= Time.fixedDeltaTime;
             if (timers[actualIndex] <= 0f)

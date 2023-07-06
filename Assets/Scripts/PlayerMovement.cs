@@ -56,11 +56,6 @@ public class PlayerMovement : MonoBehaviour
     // - Arreglar hitbox y centro de run
     // - Animacion fall
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -74,8 +69,6 @@ public class PlayerMovement : MonoBehaviour
         canMoveForward = true;
         actIndex = 0;
         canFastFall = true;
-
-        gameObject.SetActive(false);
 
         ReloadPlayer();
     }

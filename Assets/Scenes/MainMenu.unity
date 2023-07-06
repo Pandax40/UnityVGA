@@ -743,6 +743,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 39341439516162875, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1138240669}
+    - target: {fileID: 39341439516162875, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 186579720866114056, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2168627712000019522, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -830,6 +842,18 @@ PrefabInstance:
     - target: {fileID: 2191470147779496945, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191470147779496945, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7975985472360683567, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013056961270852344, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2449,6 +2473,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2509973166718366172}
+    - target: {fileID: 1022509716979720187, guid: 7ae6eb3183f350744ab236d6a256e32a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1276962279817966261, guid: 7ae6eb3183f350744ab236d6a256e32a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2533,6 +2561,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1565049157147763855, guid: 7ae6eb3183f350744ab236d6a256e32a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4186125247522537801, guid: 7ae6eb3183f350744ab236d6a256e32a, type: 3}
       propertyPath: m_Name
       value: Controls
@@ -2545,6 +2577,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.98000336
       objectReference: {fileID: 0}
+    - target: {fileID: 5513399907517076964, guid: 7ae6eb3183f350744ab236d6a256e32a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5868930135078512706, guid: 7ae6eb3183f350744ab236d6a256e32a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 205.9
@@ -2556,6 +2592,18 @@ PrefabInstance:
     - target: {fileID: 5868930135078512706, guid: 7ae6eb3183f350744ab236d6a256e32a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -92.29999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492005962583157298, guid: 7ae6eb3183f350744ab236d6a256e32a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957071596545311760, guid: 7ae6eb3183f350744ab236d6a256e32a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7196747285509395741, guid: 7ae6eb3183f350744ab236d6a256e32a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2646,9 +2694,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2087710897570968400, guid: 71e5143327027f34e86d47c4e547b1b0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3779736482166065798, guid: 71e5143327027f34e86d47c4e547b1b0, type: 3}
       propertyPath: m_Name
       value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779736482166065798, guid: 71e5143327027f34e86d47c4e547b1b0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6646322755068230221, guid: 71e5143327027f34e86d47c4e547b1b0, type: 3}
       propertyPath: m_Pivot.x
@@ -2733,6 +2789,10 @@ PrefabInstance:
     - target: {fileID: 6646322755068230221, guid: 71e5143327027f34e86d47c4e547b1b0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081452015190421357, guid: 71e5143327027f34e86d47c4e547b1b0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

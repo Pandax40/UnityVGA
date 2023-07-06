@@ -13,15 +13,14 @@ public class PauseMenuManager : MonoBehaviour
 
     void Start()
     {
-        activated = false;
-        Time.timeScale = 1f;
+        activated = true;
     }
 
     public void Pause(InputAction.CallbackContext ctx)
     {
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);
-        if(SceneManager.GetActiveScene().buildIndex > 1)
+        if(SceneManager.GetActiveScene().buildIndex > 1 && ctx.performed)
             PauseAux();
+            
     }
 
     public void PlayButton()
@@ -49,13 +48,8 @@ public class PauseMenuManager : MonoBehaviour
 
     public void HomeButton()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
-    }
-
-    public void RestartButton()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        PauseAux();
+        GameManager.Instance.LoadMainMenu();
     }
 
 }
