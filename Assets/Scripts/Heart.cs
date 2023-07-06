@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Heart : MonoBehaviour
 {
-    [SerializeField] private GameObject CoinPlayer;
+    [SerializeField] private GameObject HeartPlayer;
     [SerializeField] private GameObject PickupParticles;
     private bool isTaked = false;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -12,11 +13,11 @@ public class Coin : MonoBehaviour
         if (collision.tag == "Player" && !isTaked)
         {
             isTaked = true;
-            GameManager.Instance.AddCoin();
-            GameObject Audio = Instantiate(CoinPlayer);
-            Destroy(Audio,1f);
+            GameManager.Instance.AddHearts(1);
+            GameManager.Instance.Interfaz.UpdateHearts();
+            GameObject Audio = Instantiate(HeartPlayer);
+            Destroy(Audio, 1f);
             Destroy(gameObject, 0.1f);
-            GameManager.Instance.Interfaz.UpdateCoins();
             Instantiate(PickupParticles, collision.transform);
         }
     }

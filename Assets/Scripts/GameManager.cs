@@ -264,7 +264,7 @@ public class GameManager : MonoBehaviour
         Player.GetComponent<PlayerMovement>().ReloadPlayer();
     }
 
-    private void AddHearts(int heartsNum)
+    public void AddHearts(int heartsNum)
     {
         for(int i = actualIndex; i < PlayerRound.Length; ++i)
         {
