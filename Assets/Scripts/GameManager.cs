@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject PlayerScene;
     [SerializeField] private GameObject UIEstatica;
     [SerializeField] private GameObject Loading;
-    [SerializeField] private GameObject GameOverScreen;
     [SerializeField] private GameObject PauseMenu;
 
     private int actualIndex;
@@ -47,7 +46,6 @@ public class GameManager : MonoBehaviour
     private AsyncOperation loadProgress;
     public GameObject Player { get => PlayerScene; }
     public UI Interfaz { get => UIEstatica.GetComponent<UI>(); }
-    public GameObject GameOver { get => GameOverScreen; }
     public GameObject Pause { get => PauseMenu; }
     public int Probability { get => CoinSpawnProbability[actualIndex]; }
     public int DamageInterval { get => DamageSysInterval[actualIndex]; }
@@ -65,7 +63,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(PlayerScene);
             Destroy(Loading);
-            Destroy(GameOverScreen);
             Destroy(PauseMenu);
             Destroy(UIEstatica);
             Destroy(gameObject);
@@ -78,13 +75,11 @@ public class GameManager : MonoBehaviour
         BuyBuffer = new bool[4];
         DontDestroyOnLoad(PlayerScene);
         DontDestroyOnLoad(Loading);
-        DontDestroyOnLoad(GameOverScreen);
         DontDestroyOnLoad(PauseMenu);
         DontDestroyOnLoad(UIEstatica);
         DontDestroyOnLoad(gameObject);
         PlayerScene.SetActive(false);
         Loading.SetActive(false);
-        GameOverScreen.SetActive(false);
         PauseMenu.SetActive(false);
         UIEstatica.SetActive(false);
     }
@@ -107,7 +102,6 @@ public class GameManager : MonoBehaviour
     public void LoadMainMenu()
     {
         ReloadAll();
-        timers[actualIndex] = auxTimer;
         loadProgress = SceneManager.LoadSceneAsync(0);
     }
     void Update()
@@ -116,10 +110,9 @@ public class GameManager : MonoBehaviour
         {
             Loading.SetActive(false);
             PauseMenu.SetActive(false);
-            GameOver.SetActive(false);
             loadProgress = null;
             auxTimer = timers[actualIndex];
-            if (SceneManager.GetActiveScene().buildIndex > 1)
+            if (SceneManager.GetActiveScene().buildIndex > 2)
             {
                 Interfaz.gameObject.SetActive(true);
                 Player.transform.position = SpawnPos;
@@ -142,7 +135,7 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (timers[actualIndex] > 0f && !OnShop && SceneManager.GetActiveScene().buildIndex > 1 && loadProgress == null)
+        if (timers[actualIndex] > 0f && !OnShop && SceneManager.GetActiveScene().buildIndex > 2 && loadProgress == null)
         {
             timers[actualIndex] -= Time.fixedDeltaTime;
             if (timers[actualIndex] <= 0f)
@@ -170,7 +163,10 @@ public class GameManager : MonoBehaviour
         Interfaz.UpdateHearts();
         if (GetPropertys.hearts == 0)
         {
-            Loading.SetActive(true);
+            Player.SetActive(false);
+            Interfaz.gameObject.SetActive(false);
+            timers[actualIndex] = auxTimer;
+            loadProgress = SceneManager.LoadSceneAsync(2);
             return true;
         }
         return false;
@@ -244,7 +240,6 @@ public class GameManager : MonoBehaviour
                 for (int i = actualIndex; i < PlayerRound.Length; ++i)
                     PlayerRound[i].plusVelocity = true;
                 BuyBuffer[4] = true;
-
                 break;
             default:
                 break;

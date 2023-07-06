@@ -37,6 +37,7 @@ public class PowerUp : MonoBehaviour
                 GameManager.Instance.BuyItem(id);
                 GameObject Sonido = Instantiate(BuyPlayer);
                 Destroy(Sonido, 1f);
+                GameManager.Instance.Interfaz.ShakeCoins(1f);
                 Destroy(gameObject);
             }
         }

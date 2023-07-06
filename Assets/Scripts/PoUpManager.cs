@@ -17,11 +17,11 @@ public class PoUpManager : MonoBehaviour
     {
         cajas = new GameObject[3];
         int[] ids = new int[3];
-        ids[0] = UnityEngine.Random.Range(0, 2);
-        ids[1] = UnityEngine.Random.Range(3, 6);
-        ids[2] = UnityEngine.Random.Range(7, 11);
+        ids[0] = UnityEngine.Random.Range(0, 3);
+        ids[1] = UnityEngine.Random.Range(3, 7);
+        ids[2] = UnityEngine.Random.Range(7, 12);
         while (GameManager.Instance.BuyBuffer[ids[2] - 7])
-            ids[2] = UnityEngine.Random.Range(7, 11);
+            ids[2] = UnityEngine.Random.Range(7, 12);
         for (int i = 0; i < 2 + (!forest ? 1 : 0); ++i)
             cajas[i] = Instantiate(PU[ids[i]], transform.GetChild(0).GetChild(i).transform.position, quaternion.identity, this.transform);
     }
