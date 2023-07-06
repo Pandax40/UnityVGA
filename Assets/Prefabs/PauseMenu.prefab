@@ -245,7 +245,7 @@ RectTransform:
   m_Children:
   - {fileID: 7007053379708572246}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -328,6 +328,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausemenu: {fileID: 4901317139599962363}
+  AudioSource: {fileID: 0}
+  PauseON: {fileID: 8300000, guid: 612e640e142d1c6428492933f2dd0433, type: 3}
+  PauseOFF: {fileID: 8300000, guid: b6152fc5a7ff0ad4f9b72546c15b4d7a, type: 3}
 --- !u!114 &8339820070024549775
 MonoBehaviour:
   m_ObjectHideFlags: 0

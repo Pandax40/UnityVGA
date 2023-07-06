@@ -7447,14 +7447,6 @@ PrefabInstance:
       value: PauseMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6746724602268010873, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
-      propertyPath: PauseON
-      value: 
-      objectReference: {fileID: 8300000, guid: 612e640e142d1c6428492933f2dd0433, type: 3}
-    - target: {fileID: 6746724602268010873, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
-      propertyPath: PauseOFF
-      value: 
-      objectReference: {fileID: 8300000, guid: b6152fc5a7ff0ad4f9b72546c15b4d7a, type: 3}
-    - target: {fileID: 6746724602268010873, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
       propertyPath: AudioSource
       value: 
       objectReference: {fileID: 1191008094839197322}
