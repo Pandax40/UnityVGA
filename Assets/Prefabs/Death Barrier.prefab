@@ -91,3 +91,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sectionManager: {fileID: 0}
+  DamagePlayer: {fileID: 7253763596137428047, guid: 40dd572d4d26698409b6098ef1b8b47e, type: 3}

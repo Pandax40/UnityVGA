@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
+    public GameObject DamagePlayer;
     private float health;
     private float timer;
     // Start is called before the first frame update
@@ -33,6 +34,8 @@ public class Damage : MonoBehaviour
             health -= 0.1f;
             if(health <= 0f)
             {
+                GameObject Sondio = Instantiate(DamagePlayer);
+                Destroy(Sondio, 1f);
                 GameManager.Instance.RemoveHeart();
                 GameManager.Instance.Interfaz.ShakeHearts(1f);
                 health = 9f;

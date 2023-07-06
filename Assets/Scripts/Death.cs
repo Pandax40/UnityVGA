@@ -5,6 +5,7 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     [SerializeField] private SectionManager sectionManager;
+    public GameObject DamagePlayer;
     private bool death;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,8 @@ public class Death : MonoBehaviour
     {
         if (!GameManager.Instance.RemoveHeart() && !death)
         {
+            GameObject Sonido = Instantiate(DamagePlayer);
+            Destroy(Sonido,1f);
             collision.transform.position = sectionManager.GetSpawnPos();
             death = false;
         }
