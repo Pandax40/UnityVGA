@@ -845,6 +845,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6746724602268010873, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
+      propertyPath: ClipON
+      value: 
+      objectReference: {fileID: 5572743379400393974, guid: 15f5ac3663b026e409f7575e86de0acc, type: 3}
+    - target: {fileID: 6746724602268010873, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
+      propertyPath: ClipOFF
+      value: 
+      objectReference: {fileID: 3956036822789771256, guid: d12d02432f634a54290e43fedd38736f, type: 3}
+    - target: {fileID: 6746724602268010873, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
+      propertyPath: AudioSource
+      value: 
+      objectReference: {fileID: 1138240670}
+    - target: {fileID: 7975985472360683567, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2509973166718366172}
     - target: {fileID: 7975985472360683567, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1387,6 +1403,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445f8e869a24f7c4a8330702a56b822b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1138240670 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1532579904300072443, guid: 1f155e32e3b45c945bf190b55d2786fb, type: 3}
+  m_PrefabInstance: {fileID: 768635847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1235591967
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,7 +3256,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1ef32bbccbc0e96499dd538503cf8bee, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 519c64f36b5c4da47ae56d8bb07f2186, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1

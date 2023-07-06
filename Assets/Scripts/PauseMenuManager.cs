@@ -8,8 +8,8 @@ public class PauseMenuManager : MonoBehaviour
 {
     private bool activated;
     public AudioSource AudioSource;
-    public AudioClip PauseON;
-    public AudioClip PauseOFF;
+    public GameObject ClipON;
+    public GameObject ClipOFF;
 
     void Start()
     {
@@ -22,7 +22,7 @@ public class PauseMenuManager : MonoBehaviour
             PauseAux();
             
     }
-
+    
     public void PlayButton()
     {
         PauseAux();
@@ -32,16 +32,18 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (activated)
         {
-            AudioSource.PlayOneShot(PauseOFF, 3f);
             activated = false;
-            gameObject.SetActive(false);
             Time.timeScale = 1f;
+            GameObject Sound = Instantiate(ClipON);
+            Destroy(Sound, 1f);
+            gameObject.SetActive(false);
         }
         else
         {
-            AudioSource.PlayOneShot(PauseON, 3f);
             activated = true;
             gameObject.SetActive(true);
+            GameObject Sound = Instantiate(ClipOFF);
+            Destroy(Sound, 1f);
             Time.timeScale = 0f;
         }
     }

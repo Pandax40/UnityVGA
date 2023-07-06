@@ -461,6 +461,8 @@ MonoBehaviour:
   playerMovement: {fileID: 584717103700282051}
   FallParticles: {fileID: 1433157478021220637, guid: f5cd9326b4dcb08418bd65263a4c5f48, type: 3}
   FallPlayer: {fileID: 2924010012684168218, guid: 6cd8cefca45b8464d81a73996894ecfd, type: 3}
+  Dashplayer: {fileID: 9159478902762320677, guid: 39ee505fe2f5f99458660004db33788a, type: 3}
+  slided: 0
 --- !u!82 &3907820059344693272
 AudioSource:
   m_ObjectHideFlags: 0
@@ -471,9 +473,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bbce109b66d592543902d8d7bc0bf65c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d7a410ab947416148904cf52c760388b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.113
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -571,6 +573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 3907820059344693272}
   playerMovement: {fileID: 584717103700282051}
+  AudioRunTimer: 0.5
 --- !u!1 &7710920837848825097
 GameObject:
   m_ObjectHideFlags: 0

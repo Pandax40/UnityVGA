@@ -8,6 +8,8 @@ public class PlayerParticles : MonoBehaviour
     public GameObject FallParticles;
     private bool FallDetection;
     public GameObject FallPlayer;
+    public GameObject Dashplayer;
+    public bool slided;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -15,6 +17,7 @@ public class PlayerParticles : MonoBehaviour
     void Start()
     {
         FallDetection = false;
+        slided = false;
     }
 
     void FixedUpdate()
@@ -24,6 +27,7 @@ public class PlayerParticles : MonoBehaviour
         else
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
         if (!playerMovement.canJump) FallDetection = true;
+        if (playerMovement.canSlide) slided = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,6 +39,12 @@ public class PlayerParticles : MonoBehaviour
             GameObject ParticulaCaida = Instantiate(FallParticles, transform.GetChild(1));
             Destroy(ParticulaCaida, 2f);
             FallDetection = false;
+        }
+        if (collision.gameObject.layer == 3 && !playerMovement.canSlide && !slided)
+        {
+            GameObject DashSound = Instantiate(Dashplayer);
+            Destroy(DashSound, 1f);
+            slided = true;
         }
     }
 }
