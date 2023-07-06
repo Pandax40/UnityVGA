@@ -18,6 +18,8 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shakeTimer = 0f;
+        shakeCoins = 0f;
         coinText = GetComponentInChildren<TextMeshProUGUI>();
         auxCoinPos = transform.GetChild(1).GetComponent<RectTransform>().localPosition;
         auxHeartPos = transform.GetChild(0).GetComponent<RectTransform>().localPosition;
@@ -25,6 +27,7 @@ public class UI : MonoBehaviour
         for(int i = 0; i < 4; ++i)
             hearts[i] = transform.GetChild(0).GetChild(i).gameObject;
         UpdateHearts();
+        UpdateCoins();
     }
 
     // Update is called once per frame

@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         Monedas = actualIndex = 0;
         loadProgress = null;
         BuyPerformed = false;
-        BuyBuffer = new bool[4];
+        BuyBuffer = new bool[5];
         DontDestroyOnLoad(PlayerScene);
         DontDestroyOnLoad(Loading);
         DontDestroyOnLoad(PauseMenu);
@@ -107,6 +107,8 @@ public class GameManager : MonoBehaviour
     public void LoadMainMenu()
     {
         ReloadAll();
+        Interfaz.UpdateHearts();
+        Interfaz.UpdateCoins();
         loadProgress = SceneManager.LoadSceneAsync(0);
     }
     void Update()
@@ -122,9 +124,8 @@ public class GameManager : MonoBehaviour
                 Interfaz.gameObject.SetActive(true);
                 Player.SetActive(true);
                 Player.transform.position = SpawnPos;
-                Interfaz.UpdateHearts();
-                Interfaz.UpdateCoins();
-                if(OnShop) Player.transform.position = new Vector3(-6,-2.6f,0);
+                if(OnShop) 
+                    Player.transform.position = new Vector3(-6,-2.6f,0);
             }
             else
             {
@@ -177,6 +178,7 @@ public class GameManager : MonoBehaviour
             return true;
         }
         return false;
+        
     }
 
     public void BuyKey(InputAction.CallbackContext context)

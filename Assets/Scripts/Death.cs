@@ -15,7 +15,11 @@ public class Death : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!GameManager.Instance.RemoveHeart() && !death)
+        {
             collision.transform.position = sectionManager.GetSpawnPos();
-        else death = true;
+            death = false;
+        }
+        else 
+            death = true;
     }
 }

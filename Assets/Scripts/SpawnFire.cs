@@ -25,7 +25,6 @@ public class SpawnFire : MonoBehaviour
     private GameObject Column;
     private bool needColumn;
     private float SoundTimer;
-    private float playerLive;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +33,6 @@ public class SpawnFire : MonoBehaviour
         timer = 0;
         centerPosition = new Vector2(Random.Range(-12, 12), 20);
         SoundTimer = 0;
-        playerLive = 0.2f;
         needColumn = true;
     }
 
@@ -76,17 +74,6 @@ public class SpawnFire : MonoBehaviour
                 float randomx = Random.Range(-RangeX, RangeX);
                 FireSpawn(new Vector3(randomx + centerPosition.x, centerPosition.y, 0f));
                 auxFreq = freq;
-            }
-            float playerPosX = GameManager.Instance.Player.transform.position.x;
-            if (playerPosX > centerPosition.x - RangeX - 0.5f && playerPosX < centerPosition.x + RangeX + 0.5f)
-            {
-                playerLive -= Time.fixedDeltaTime;
-                if(playerLive <= 0f)
-                {
-                    playerLive = 1f;
-                    GameManager.Instance.RemoveHeart();
-                    GameManager.Instance.Interfaz.ShakeHearts(1f);
-                }
             }
         }
         if (timer <= 0) 
