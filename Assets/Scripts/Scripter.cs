@@ -7,7 +7,7 @@ public class Scripter : MonoBehaviour
     [SerializeField] private GameObject FireSpawner;
     public CameraShake CameraShake;
     private Vector3 OgCamerapos;
-    public bool Spawning;
+    public static bool Spawning;
 
     private float timer;
 

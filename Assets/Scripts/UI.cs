@@ -56,11 +56,13 @@ public class UI : MonoBehaviour
     }
     public void UpdateCoins()
     {
+        if (hearts == null) return;
         coinText.text = GameManager.Instance.Monedas.ToString();
     }
 
     public void UpdateHearts()
     {
+        if (hearts == null) return;
         bool extraHeart = GameManager.Instance.GetPropertys.extraHeart;
         int numHearts = GameManager.Instance.GetPropertys.hearts;
         hearts[3].SetActive(extraHeart);

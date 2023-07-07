@@ -11,6 +11,7 @@ public class PlatformGenerator : MonoBehaviour
     private int i;
     private int j;
     private float timer;
+    private float timerEnd;
     private bool isDestroyed;
 
     void Start()
@@ -42,6 +43,14 @@ public class PlatformGenerator : MonoBehaviour
                 timer = 0f;
             }
         }
+        if (isDestroyed && Scripter.Spawning)
+            timerEnd = 1f;
+        if(timerEnd > 0)
+        {
+            timerEnd -= Time.deltaTime;
+            if(timerEnd <= 0)
+                isDestroyed = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,12 +58,7 @@ public class PlatformGenerator : MonoBehaviour
         if(collision.gameObject.CompareTag("Fire") && !isDestroyed)
         {
             isDestroyed = true;
-            timer = 2f;
+            timer = 0.8f;
         }
-        else if(isDestroyed && !collision.gameObject.CompareTag("Fire") && !collision.gameObject.CompareTag("Player"))
-        {
-            isDestroyed = false;
-        }
-            
     }
 }

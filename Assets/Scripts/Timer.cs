@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public float timer;
+    public static float timer;
     [SerializeField] private  TMP_Text timertext;
     private int seconds, cents;
 
@@ -20,12 +20,10 @@ public class Timer : MonoBehaviour
     {
         if (timer > 0)
         {
-            timer -= Time.deltaTime;
-
             seconds = (int)(timer);
             cents = (int)((timer - (int)(timer))*100f);
 
-           timertext.text = string.Format("{0:00}:{1:00}", seconds, cents);
+            timertext.text = string.Format("{0:00}:{1:00}", seconds, cents);
         }
         else
         {

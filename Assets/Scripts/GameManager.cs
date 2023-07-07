@@ -128,13 +128,17 @@ public class GameManager : MonoBehaviour
                 if (OnShop)
                 {
                     Player.transform.position = new Vector3(-6,-2.6f,0);
+                    Interfaz.transform.GetChild(3).gameObject.SetActive(false);
                     PoUpManager.IsUpdated = true;
                 }
+                else
+                    Interfaz.transform.GetChild(3).gameObject.SetActive(true);
             }
             else
             {
                 Player.SetActive(false);
                 Interfaz.gameObject.SetActive(false);
+                Interfaz.transform.GetChild(3).gameObject.SetActive(false);
             }
         }
         else if(loadProgress != null)
@@ -150,14 +154,27 @@ public class GameManager : MonoBehaviour
         if (timers[actualIndex] > 0f && !OnShop && SceneManager.GetActiveScene().buildIndex > 2 && loadProgress == null)
         {
             timers[actualIndex] -= Time.fixedDeltaTime;
+            Timer.timer = timers[actualIndex];
             if (timers[actualIndex] <= 0f)
             {
                 OnShop = true;
                 timers[actualIndex] = auxTimer;
                 actualIndex++;
-                Player.GetComponent<PlayerMovement>().ReloadPlayer();
-                Interfaz.UpdateHearts();
-                loadProgress = SceneManager.LoadSceneAsync(mapIndexs[actualIndex-1]+1);
+                if(actualIndex < PlayerRound.Length)
+                {
+                    Player.GetComponent<PlayerMovement>().ReloadPlayer();
+                    Interfaz.UpdateHearts();
+                    loadProgress = SceneManager.LoadSceneAsync(mapIndexs[actualIndex-1]+1);
+                }
+                else
+                {
+                    Player.SetActive(false);
+                    Interfaz.gameObject.SetActive(false);
+                    timers[actualIndex - 1] = auxTimer;
+                    actualIndex = 0;
+                    OnShop = false;
+                    loadProgress = SceneManager.LoadSceneAsync(1);
+                }
             }
         }
     }
