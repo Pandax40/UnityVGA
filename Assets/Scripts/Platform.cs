@@ -19,7 +19,7 @@ public class Platform : MonoBehaviour
     void Start()
     {
         collider = GetComponent<Collider2D>();
-        timer = Random.Range(0f, 4f);
+        timer = Random.Range(2f, 4f);
         materialSlime = new PhysicsMaterial2D();
         materialSlime.bounciness = 0.8f;
     }
@@ -38,13 +38,13 @@ public class Platform : MonoBehaviour
             if(random < Probability && Spawned == null)
             {
                 int randomHeart = Random.Range(0, 100);
-                if (GameManager.Instance.GetPropertys.CoinsToHearts && randomHeart > 86)
+                if (GameManager.Instance.GetPropertys.CoinsToHearts && randomHeart < 6)
                     Spawned = Instantiate(heartPrefab, transform.position + new Vector3(0,1.7f,0), Quaternion.identity);
                 else
                     Spawned = Instantiate(coinPrefab, transform.position + new Vector3(0, 1.7f, 0), Quaternion.identity);
                 Destroy(Spawned, DestroyTimer);
             }
-            timer = Random.Range(0f, 4f);
+            timer = Random.Range(2f, 4f);
         }
 
         if(gameObject.tag == "Slime")
