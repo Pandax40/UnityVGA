@@ -88,8 +88,6 @@ public class PlayerMovement : MonoBehaviour
         rigidbody.velocity = new Vector2(fRoundVelociadX, fRoundVelociadY);
 
         direction = Mathf.Round(Mathf.Clamp(transform.eulerAngles.y - 90, -1f, 1f) * -1f); //Direccion del personaje [IZQ](-1f) o [DER](1f)
-
-
     }
 
     private void Raycasts(float distanceHorizontal)
@@ -142,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         DirectionAndFix(2);
-        Raycasts(0.57f);
+        Raycasts(0.547f);
         AnimationsSet();
 
         //Ice Sliding and Dirt

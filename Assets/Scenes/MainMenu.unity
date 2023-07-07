@@ -368,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7502305412776154647, guid: eff666d1a5a312b408eaaf593ae71c89, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1144,7 +1144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: DamageSysInterval.Array.data[4]
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: DamageSysInterval.Array.data[5]
@@ -1152,27 +1152,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[0]
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[1]
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[2]
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[3]
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[4]
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[5]
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 3214241380637755310, guid: dd631d98c52299d40a7a6753e0db2605, type: 3}
       propertyPath: CoinSpawnProbability.Array.data[6]
