@@ -223,7 +223,6 @@ GameObject:
   - component: {fileID: 186579720866114056}
   - component: {fileID: 8013056961270852344}
   - component: {fileID: 6746724602268010873}
-  - component: {fileID: 7059434692900702363}
   - component: {fileID: 1532579904300072443}
   m_Layer: 5
   m_Name: PauseMenu
@@ -329,20 +328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 1532579904300072443}
-  PauseON: {fileID: 8300000, guid: 612e640e142d1c6428492933f2dd0433, type: 3}
-  PauseOFF: {fileID: 8300000, guid: b6152fc5a7ff0ad4f9b72546c15b4d7a, type: 3}
---- !u!114 &7059434692900702363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2191470147779496945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27be5e30d1d73a842ade099e0fd9e4e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  ClipON: {fileID: 0}
+  ClipOFF: {fileID: 0}
 --- !u!82 &1532579904300072443
 AudioSource:
   m_ObjectHideFlags: 0

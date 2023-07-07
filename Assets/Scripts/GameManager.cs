@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player { get => PlayerScene; }
     public UI Interfaz { get => UIEstatica.GetComponent<UI>(); }
     public GameObject Pause { get => PauseMenu; }
+    public GameObject LoadingScreen { get => Loading; }
     public int Probability { get => CoinSpawnProbability[actualIndex]; }
     public int DamageInterval { get => DamageSysInterval[actualIndex]; }
     public int DamageWarn { get => DamageSysWarn[actualIndex]; }
